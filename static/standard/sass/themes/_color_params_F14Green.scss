@@ -1,0 +1,86 @@
+@charset "UTF-8";
+//	全局颜色只给一个基色值  hover颜色 使用
+//	lighten		通过改变颜色的亮度值，让颜色变亮
+//	darken		通过改变颜色的亮度值，让颜色变暗
+//	saturate	通过改变颜色的饱和度值，让颜色更饱和
+//  desaturate	通过改变颜色的饱和度值，让颜色更少的饱和
+//  使用方法    darken(#dff0d8,5%); 把#dff0d8颜色亮度降低5%
+//	默认全部的hover颜色就是使用darken函数降低亮度5%
+
+//按钮圆角的大小
+$global-btn-radius-size 		: 0 !default;
+//左菜单鼠标划过时背景各种颜色 是否启用
+$global-nav-grid-is-show		: true !default;
+
+//字体大小、字体颜色
+$global-font-size				: 14px !default;
+$global-font-color				: #555 !default;
+//行高
+$global-line-height				: 20px !default;
+
+//a标签颜色 hover颜色
+$global-a-color    				: #43a0f2 !default;
+$global-a-hover-color			: #4a647e !default;
+
+//边框颜色  正常、白色、深色
+$global-border-color			: #eee !default;
+$global-border-light-color		: #fff !default;
+$global-border-dark-color		: #999 !default;
+
+//input的文字、边框、背景色
+$global-input-color				: $global-font-color !important !default;
+$global-input-border-color		: #ccc !default;
+$global-input-bg-color			: $global-border-light-color !default;
+
+//禁用disabled颜色
+$global-disabled-color	  		: $global-border-color !default;
+
+//header背景颜色
+$global-header-color			: #217346 !default;
+
+//表单验证	文字和边框颜色
+$global-invalid-font-color	  	: #b94a48 !default;
+$global-invalid-border-color 	: #ee5f5b !default;
+
+//按钮
+$global-btn-padding				: 4px 12px !default;
+$global-btn-size				: $global-font-size !default;
+$global-btn-line-height			: $global-line-height !default;
+$global-btn-text-color			: $global-border-light-color !default;
+$global-btn-btn-color			: $global-input-border-color !default;
+$global-btn-bg-color			: #217346 !default;
+
+$global-btn-success				: #60c060 !default;
+$global-btn-error				: #f2dede !default;
+$global-btn-warning				: #fcf8e3 !default;
+$global-btn-info				: #d9edf7 !default;
+$global-btn-disabled			: #e6e6e6 !default;
+//全局按钮dark颜色，导航颜色
+$global-btn-drak				: #217346 !default;
+
+$info-btn-color: lighten($global-btn-drak ,10%);
+$prtal-sys-color: lighten($global-btn-drak ,10%);
+$email-byn-color: lighten($global-btn-drak ,5%);
+
+//table list列表样式 和表单样式 			-layout/table
+$global-table-top-colors		: #fb6b5b,#ffc333,#8ec165,#60aae9,#aece4e,#00c0ef,#f3a641,#00a65a !default;
+$global-table-color-index 		: 1 !default;
+
+//人员选择树按钮文字和背景
+$jctree-btn-color				: $global-border-light-color !default;
+$jctree-btn-bg-color			: lighten(#217346 ,5%) !default;
+
+//list列表中按钮
+$list-btn-remove-color			: #fa6a5a !default;
+$list-btn-look-color			: #5fa9e8 !default;
+$list-btn-more-color			: #5fa9e8 !default;
+$list-btn-edit-color			: $global-btn-success !default;
+$list-btn-approval-color		: $global-btn-drak !default;
+$list-btn-trash-color			: #fe6a5a !default;
+
+//nav 左菜单  					-layout/nav_primary
+$global-nav-disabled-color		: $global-border-dark-color !default;
+$global-nav-border-color		: #ececec !default;
+$global-nav-bg-color			: $global-nav-border-color !default;
+$global-nav-text-hover-color	: #444 !default;
+$global-nav-text-color			: #717171 !default;

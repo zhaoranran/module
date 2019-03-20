@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="jcGOA">
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Server</title>
+    <meta name="author" content="gezg">
+    <link rel="stylesheet" type="text/css" href="<%= rootPath%>public/fonts/fontface.css">
+    <link rel="stylesheet" type="text/css" href="<%= rootPath%><%= styles%>/css/standard.css">
+    <link rel="stylesheet" type="text/css" href="<%= rootPath%>public/css/bootstrap/jc.bootstrap.css">
+
+    <script type="text/javascript" src="<%= rootPath%>public/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="<%= rootPath%>public/js/lib/jquery.utils.js"></script>
+    <script type="text/javascript" src="<%= rootPath%>public/js/lib/jquery.cookie.js"></script>
+    <script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-base/jc.lib.js"></script>
+    <script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-layer/jc.layer.js"></script>
+    <script type="text/javascript" src="<%= rootPath%>public/js/bootstrap/jc.bootstrap.js"></script>
+    <script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-msgtip/msgTip.js"></script>
+
+
+    <script>
+        function getRootPath(){
+            return 'server';
+        }
+    </script>
+    <!--[if lt IE 9]>
+		<script src="js/lib/ie/html5shiv.js?v=758616407d"></script>
+	<![endif]-->
+</head>
+<body>
+    <section class="jcGOA-wrap">
+        <!--顶部导航-->
+        <header class="header navbar-fixed-top" id="desktop_header">
+            <!--LOGO-->
+            <h1><a href="javascript:void(0)"><img src="<%= rootPath%><%= styles%>/images/logo.png?v=988e75263f" onClick="window.location.reload();" height="60"/></a></h1>
+            <!--全屏展开按钮-->
+            <a href="javascript:void(0)" class="full-f11 m-t-md" id=""><i class="fa fa-enlarge2 text"></i><i class="fa fa-feiquanping text-active"></i></a>
+            <!--右侧功能区-->
+            <section class="userInfo m-r-sm fr clearfix">
+                <div class="user-avatar fr" id="user-avatar">
+                    <div class="user-avatar-img fl">
+                        <a href="#">
+                            <img src="<%= rootPath%><%= styles%>/images/userPhoto.png" height="40"/>
+                        </a>
+                    </div>
+                    <span class="fl sort"><i class="fa fa-sort-down"></i></span>
+                    <div class="h-nav-list" id="h-nav-list">
+                        <!--<shiro:principal property="dutyIdValue" />-->
+                        <div class="h-nav-top"></div>
+                        <div class="h-nav-center">
+                            <h2>欢迎您，<shiro:principal property="displayName" /></h2>
+                            <h3 id="onlineCount">当前有<span id="lineCount">0</span>人在线</h3>
+                            <ul>
+                                <li>
+                                    <span><i class="fa fa-pifu rounded"></i></span>
+                                    <div class="h-div-first">
+                                        <a href="javascript:void(0)" class="h-nav-red rounded" name="red" types="color"></a>
+                                        <a href="javascript:void(0)" class="h-nav-blue rounded" name="blue" types="color"></a>
+                                        <a href="javascript:void(0)" class="h-nav-green rounded" name="green" types="color"></a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span><i class="fa fa-pifu rounded"></i></span>
+                                    <div>
+                                        <button class="button-lg rounded" name="classics" types="theme">经典</button>
+                                        <button class="button-lg rounded" name="standard" types="theme">标准</button>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span><i class="fa fa-ziti rounded"></i></span>
+                                    <div>
+                                        <button class="button-lg rounded" name="standard" types="font">标准</button>
+                                        <button class="button-lg rounded" name="big" types="font">大</button>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span><i class="fa fa-volume-off rounded"></i></span>
+                                    <div>
+                                        <button class="button-lg rounded" types="voice" name="on">有声</button>
+                                        <button class="button-lg rounded" types="voice" name="off">静音</button>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="h-nav-btm m-t">
+                                <a href="javascript:void(0)" class="fl" onClick="JCF.LoadPage({name : '个人信息' , url : '/sys/user/userInfo.action'});">个人资料</a>
+                                <a href="javascript:void(0)" class="fr Logging-Out" onClick="exit()">安全退出</a>
+                            </div>
+                        </div>
+                        <div class="h-nav-bottom"></div>
+                    </div>
+                </div>
+                <div class="topbtn fr tr m-r-sm m-l-sm">
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" onClick="showAddress();">
+                                <i class="fa fa-address" data-toggle="tooltip" data-placement="bottom" title="" data-container="body" data-original-title="通讯录"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <!--搜索功能-->
+            <div class="search fr rounded">
+                <input type="text" id="smartyInput" class="placeholder" placeholder="搜索菜单、邮件或公文" />
+                <button type="button" class="w0 fl"><i class="fa fa-search"></i></button>
+                <div class="smarty" id="searchSmarty">
+                    <div class="smarty-center">
+                        <div class="padder" id="menuContainer">
+                            请输入大于1个检索文字!
+                        </div>
+                        <div class="padder" id="bissContainer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+           <!--帮助区-->
+            <section class="userInfo fr clearfix">
+                <div class="topbtn fr tr">
+                    <ul>
+                        <li class="dropdown jc-help">
+                            <a onClick="window.open('${sysPath}/help/help.html','_blank','width=1000px,height=600px');return false;" href="#" class="dropdown-toggle">
+                                <i class="fa fa-question-sign" data-toggle="tooltip" data-placement="bottom" title="" data-container="body" data-original-title="帮助"></i>
+                            </a>
+                        </li>
+                        <li class="dropdown jc-help">
+                            <a onClick="window.open('http://172.16.3.31:8080/gel','_blank');return false;" href="#" class="dropdown-toggle">
+                                <i class="fa fa-gel" data-toggle="tooltip" data-placement="bottom" title="" data-container="body" data-original-title="学习平台"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </header>
+        <!--页面主题，包含左菜单-->
+        <section>
+            <section class="jcGOA-con">
+                <!--左侧菜单-->
+                <aside class="aside-md bg-light" id="nav">
+                    <section class="jcGOA-wrap jcGOA-menu">
+                        <section class="menu">
+                            <!--  -->
+                            <div id="slim-scroll">
+                                <nav class="nav-leftmenu nav-back">
+                                    <ul class="nav" id="JCLeftMenu">
+                                    </ul>
+                                </nav>
+                            </div>
+                        </section>
+                    </section>
+                </aside>
+                <!--业务页面主题内容-->
+                <section class="jcGOA-container">
+                

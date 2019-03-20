@@ -1,0 +1,476 @@
+[
+  {
+      "id": 100001,
+      "name": "市本级",
+      "deptType": 1,
+      "parentId": 0,
+      "user": [],
+      "subDept": [
+          {
+              "id": 100002,
+              "name": "办公室",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [
+                  {
+                      "id": 200032,
+                      "displayName": "aaaa",
+                      "deptId": 100002,
+                      "orderNo": 1,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200006,
+                      "displayName": "刘敏",
+                      "deptId": 100002,
+                      "orderNo": 1002,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200007,
+                      "displayName": "王平",
+                      "deptId": 100002,
+                      "orderNo": 1003,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200001,
+                      "displayName": "admin",
+                      "deptId": 100002,
+                      "orderNo": 9999,
+                      "mobile": "18604316856",
+                      "groupTel": "556655",
+                      "email": "zhuyunchao@126.com",
+                      "level": "level_1"
+                  }
+              ],
+              "subDept": [
+                  {
+                      "id": 100024,
+                      "name": "4545",
+                      "deptType": 0,
+                      "parentId": 100002,
+                      "user": [],
+                      "subDept": []
+                  }
+              ]
+          },
+          {
+              "id": 100019,
+              "name": "市直属事业单位",
+              "deptType": 1,
+              "parentId": 100001,
+              "user": [],
+              "subDept": []
+          },
+          {
+              "id": 100003,
+              "name": "综合处",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [
+                  {
+                      "id": 200031,
+                      "displayName": "小明",
+                      "deptId": 100003,
+                      "orderNo": 123,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200030,
+                      "displayName": "测试4",
+                      "deptId": 100003,
+                      "orderNo": 1123,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200008,
+                      "displayName": "张伟平",
+                      "deptId": 100003,
+                      "orderNo": 2001,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200009,
+                      "displayName": "王伟",
+                      "deptId": 100003,
+                      "orderNo": 2002,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200010,
+                      "displayName": "王芳",
+                      "deptId": 100003,
+                      "orderNo": 2003,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200011,
+                      "displayName": "李伟",
+                      "deptId": 100003,
+                      "orderNo": 2004,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200013,
+                      "displayName": "张敏敏",
+                      "deptId": 100003,
+                      "orderNo": 2006,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200014,
+                      "displayName": "李强强",
+                      "deptId": 100003,
+                      "orderNo": 2007,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200015,
+                      "displayName": "王敏",
+                      "deptId": 100003,
+                      "orderNo": 2008,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  }
+              ],
+              "subDept": []
+          },
+          {
+              "id": 100004,
+              "name": "督查指导处",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [
+                  {
+                      "id": 200016,
+                      "displayName": "王磊",
+                      "deptId": 100004,
+                      "orderNo": 3001,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200017,
+                      "displayName": "刘洋",
+                      "deptId": 100004,
+                      "orderNo": 3002,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200018,
+                      "displayName": "王艳艳",
+                      "deptId": 100004,
+                      "orderNo": 3003,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200019,
+                      "displayName": "王勇",
+                      "deptId": 100004,
+                      "orderNo": 3004,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200023,
+                      "displayName": "王强",
+                      "deptId": 100004,
+                      "orderNo": 3005,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200024,
+                      "displayName": "王军",
+                      "deptId": 100004,
+                      "orderNo": 4006,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  }
+              ],
+              "subDept": []
+          },
+          {
+              "id": 100005,
+              "name": "法规处",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [
+                  {
+                      "id": 200020,
+                      "displayName": "李娟",
+                      "deptId": 100005,
+                      "orderNo": 4001,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  }
+              ],
+              "subDept": []
+          },
+          {
+              "id": 100006,
+              "name": "稽查处",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [
+                  {
+                      "id": 200021,
+                      "displayName": "张杰",
+                      "deptId": 100006,
+                      "orderNo": 5001,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200025,
+                      "displayName": "王秀兰",
+                      "deptId": 100006,
+                      "orderNo": 5002,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200026,
+                      "displayName": "李桂英",
+                      "deptId": 100006,
+                      "orderNo": 9999,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  }
+              ],
+              "subDept": []
+          },
+          {
+              "id": 100007,
+              "name": "行政审批办公室",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [
+                  {
+                      "id": 200022,
+                      "displayName": "李明",
+                      "deptId": 100007,
+                      "orderNo": 6001,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  }
+              ],
+              "subDept": []
+          },
+          {
+              "id": 100008,
+              "name": "应急管理处",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [
+                  {
+                      "id": 200002,
+                      "displayName": "测试1",
+                      "deptId": 100008,
+                      "orderNo": 6003,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200003,
+                      "displayName": "测试2",
+                      "deptId": 100008,
+                      "orderNo": 9999,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200004,
+                      "displayName": "测试3",
+                      "deptId": 100008,
+                      "orderNo": 9999,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  }
+              ],
+              "subDept": []
+          },
+          {
+              "id": 100009,
+              "name": "科技和标准处",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [],
+              "subDept": []
+          },
+          {
+              "id": 100010,
+              "name": "宣传教育处",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [],
+              "subDept": []
+          },
+          {
+              "id": 100011,
+              "name": "人事处",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [],
+              "subDept": []
+          },
+          {
+              "id": 100012,
+              "name": "规划财务处",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [],
+              "subDept": []
+          },
+          {
+              "id": 100013,
+              "name": "机关党委",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [],
+              "subDept": []
+          },
+          {
+              "id": 100023,
+              "name": "测试1",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [],
+              "subDept": []
+          },
+          {
+              "id": 100017,
+              "name": "司机",
+              "deptType": 0,
+              "parentId": 100001,
+              "user": [
+                  {
+                      "id": 200028,
+                      "displayName": "王司机",
+                      "deptId": 100017,
+                      "orderNo": 12,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200035,
+                      "displayName": "萨达",
+                      "deptId": 100017,
+                      "orderNo": 90,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200036,
+                      "displayName": "ads",
+                      "deptId": 100017,
+                      "orderNo": 91,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200037,
+                      "displayName": "asd",
+                      "deptId": 100017,
+                      "orderNo": 92,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  },
+                  {
+                      "id": 200029,
+                      "displayName": "呀2",
+                      "deptId": 100017,
+                      "orderNo": 123,
+                      "mobile": "",
+                      "groupTel": "",
+                      "email": "",
+                      "level": ""
+                  }
+              ],
+              "subDept": []
+          },
+          {
+              "id": 100022,
+              "name": "卫生",
+              "deptType": 1,
+              "parentId": 100001,
+              "user": [],
+              "subDept": []
+          }
+      ]
+  }
+]

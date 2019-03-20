@@ -1,0 +1,68 @@
+@charset "UTF-8";
+//全局按钮dark颜色，导航颜色
+$global-btn-drak				: #6195e4 !default;
+//a标签颜色 hover颜色
+$global-a-color    				: #43a0f2 !default;
+
+//header背景颜色
+$global-header-color			: #2c579b !default;
+
+//字体大小、字体颜色
+$global-font-size				: 14px !default;
+
+//头部导航区域top的高度
+$nav-top                     : 72px !default;
+//导航背景颜色
+$nav-bg-color                 :#2b579a !default;
+//人员树按钮
+$jctree-btn-color             :#313335 !default;
+$jctree-btn-bg-color          :#017fd4 !default;
+
+//行高
+$global-line-height				: 20px !default;
+
+$global-font-color				: #555 !default;
+
+//按钮圆角的大小
+$global-btn-radius-size 		: 0 !default;
+
+//边框颜色  正常、白色、深色
+$global-border-color			: #eee !default;
+$global-border-light-color		: #fff !default;
+$global-border-dark-color		: #999 !default;
+
+//input的文字、边框、背景色
+$global-input-color				: $global-font-color !important !default;
+$global-input-border-color		: #ccc !default;
+$global-input-bg-color			: $global-border-light-color !default;
+
+//禁用disabled颜色
+$global-disabled-color	  		: $global-border-color !default;
+
+
+$info-btn-color: lighten($global-btn-drak ,10%);
+$prtal-sys-color: lighten($global-btn-drak ,10%);
+$email-byn-color: lighten($global-btn-drak ,5%);
+
+//按钮
+$global-btn-padding				: 4px 12px !default;
+$global-btn-size				: $global-font-size !default;
+$global-btn-line-height			: $global-line-height !default;
+$global-btn-text-color			: $global-border-light-color !default;
+$global-btn-btn-color			: $global-input-border-color !default;
+$global-btn-bg-color			: #0063a6 !default;
+
+$global-btn-success				: #60c060 !default;
+$global-btn-error				: #f2dede !default;
+$global-btn-warning				: #fcf8e3 !default;
+$global-btn-info				: #d9edf7 !default;
+$global-btn-disabled			: #e6e6e6 !default;
+
+//list列表中按钮
+$list-btn-remove-color			: #fa6a5a !default;
+$list-btn-look-color			: #5fa9e8 !default;
+$list-btn-more-color			: #5fa9e8 !default;
+$list-btn-edit-color			: $global-btn-success !default;
+$list-btn-approval-color		: $global-btn-drak !default;
+$list-btn-trash-color			: #fe6a5a !default;
+

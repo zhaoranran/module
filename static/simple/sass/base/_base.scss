@@ -1,0 +1,524 @@
+@charset "UTF-8";
+/*!
+ * 全局基础框架样式
+ *
+ * base/_base.scss
+ */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+::-webkit-scrollbar{width:7px;height:7px;}
+::-webkit-scrollbar-thumb{background-color:rgba(50,50,50,0.3);}
+::-webkit-scrollbar-thumb:hover{background-color:rgba(50,50,50,0.6);}
+::-webkit-scrollbar-track{background-color:rgba(50,50,50,0.1);}
+::-webkit-scrollbar-track:hover{background-color:rgba(50,50,50,0.2);}
+
+.scrollable{
+	-webkit-overflow-scrolling:touch;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+.jcGOA ,.jcGOA body{
+	width: 100%; 
+	height: 100%; 
+	/* overflow: hidden; */
+}
+
+.jcGOA{
+	.jcGOA-wrap{
+		& > section ,&> footer{
+			position: absolute;
+		}
+	}
+
+	.jcGOA-con { height: 100%; }
+
+	.jcGOA-section { 
+		height: 100%; 
+		position: relative; 
+	}
+
+	
+}
+
+.jcGOA-con { 
+	display: table; 
+	table-layout: fixed; 
+	border-spacing: 0; 
+	width: 100%; 
+	& > aside { 
+		border-right: 1px solid #dfdfdf;
+	}
+	& > aside ,& > section{
+		display: table-cell; 
+		vertical-align: top; 
+		height: 100%; 
+		padding: 0; 
+		float: none;
+		&.show ,.hidden-sm{
+			display: table-cell !important;
+		}
+	}
+}
+
+.jcGOA-wrap { 
+	border-spacing: 0; 
+	position: relative; 
+	height: 100%; 
+	width: 100%;
+	& > section { 
+		top: 0; 
+		bottom: 0; 
+		width: 100%; 
+	}
+	& > header ~ section { 
+		top: $nav-top ;
+	}
+
+	&.jcGOA-menu > header ~ section { 
+		top: 40px; 
+	}
+}
+/* 标签公共样式 */
+p{
+	margin:0 0 10px
+}
+hr{
+	margin:20px 0;
+	border:0;
+	border-top:1px solid $global-border-color;
+	border-bottom:1px solid #fff
+}
+abbr[title],abbr[data-original-title]{
+	cursor:help;
+	border-bottom:1px dotted #999
+}
+abbr.initialism{
+	font-size:90%;
+	text-transform:uppercase
+}
+blockquote{
+	padding:0 0 0 15px;
+	margin:0 0 20px;
+	border-left:5px solid $global-border-color
+}
+blockquote p{
+	margin-bottom:0;
+	font-size:17.5px;
+	font-weight:300;
+	line-height:1.25
+}
+blockquote small{
+	display:block;
+	line-height:20px;
+	color:#999
+}
+blockquote small:before{
+	content:'\2014 \00A0'
+}
+blockquote.pull-right{
+	float:right;
+	padding-right:15px;
+	padding-left:0;
+	border-right:5px solid $global-border-color;
+	border-left:0
+}
+blockquote.pull-right p,blockquote.pull-right small{
+	text-align:right
+}
+blockquote.pull-right small:before{
+	content:''
+}
+blockquote.pull-right small:after{
+	content:'\00A0 \2014'
+}
+q:before,q:after,blockquote:before,blockquote:after{
+	content:""
+}
+address{
+	display:block;
+	margin-bottom:20px;
+	font-style:normal;
+	line-height:20px
+}
+code,pre{
+	padding:0 3px 2px;
+	font-family:Monaco,Menlo,Consolas,"Courier New",monospace;
+	font-size:12px;
+	color:#333;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	border-radius:3px
+}
+code{
+	padding:2px 4px;
+	color:#d14;
+	white-space:nowrap;
+	background-color:#f7f7f9;
+	border:1px solid #e1e1e8
+}
+pre{
+	display:block;
+	padding:9.5px;
+	margin:0 0 10px;
+	font-size:13px;
+	line-height:20px;
+	word-break:break-all;
+	word-wrap:break-word;
+	white-space:pre;
+	white-space:pre-wrap;
+	background-color:#f5f5f5;
+	border:1px solid #ccc;
+	border:1px solid rgba(0,0,0,0.15);
+	@include border-radius(4px);
+}
+pre.prettyprint{
+	margin-bottom:20px
+}
+pre code{
+	padding:0;
+	color:inherit;
+	white-space:pre;
+	white-space:pre-wrap;
+	background-color:transparent;
+	border:0
+}
+.pre-scrollable{
+	max-height:340px;
+	overflow-y:scroll
+}
+fieldset{
+	padding:0;
+	margin:0;
+	border:0
+}
+legend{
+	display:block;
+	width:100%;
+	padding:0;
+	margin-bottom:20px;
+	font-size:21px;
+	line-height:40px;
+	color:#333;
+	border:0;
+	border-bottom:1px solid #e5e5e5
+}
+legend small{
+	font-size:15px;
+	color:#999
+}
+label,input,button,select,textarea{
+	font-size:14px;
+	font-weight:normal;
+	line-height:20px;
+}
+label.title {
+	line-height: 100%;
+}
+label{
+	display:block;
+	margin-bottom:5px
+}
+/* table 公共 */
+table{
+	max-width:100%;
+	background-color:transparent;
+	border-collapse:collapse;
+	border-spacing:0
+}
+.table{
+	width:100%;
+	margin-bottom:20px;
+	border-left:0;
+	border: 1px solid #ccc;
+	table-layout: fixed;
+	th,td{
+		padding:8px;
+		line-height:20px;
+		text-align:left;
+		vertical-align:top;
+		/* border-left: 1px solid #ccc;  */
+		border-top:1px solid #ccc;
+	}
+
+	th{
+		font-weight:bold
+	}
+	td{
+		vertical-align:middle
+	}
+	caption+thead tr:first-child{
+		th,td{
+			border-top:0
+		}
+	}
+	colgroup+thead tr:first-child{
+		th,td{
+			border-top:0
+		}
+	}
+	thead:first-child tr:first-child{
+		th,td{
+			border-top:0
+		}
+	}
+	caption+tbody tr:first-child{
+		th,td{
+			border-top:0
+		}
+	}
+	colgroup+tbody tr:first-child{
+		th,td{
+			border-top:0
+		}
+	}
+	tbody:first-child tr:first-child{
+		th,td{
+			border-top:0
+		}
+	}
+	tbody+tbody{
+		border-top:2px solid #ddd
+	}
+	.table{
+		background-color:#fff
+	}
+	th,td{
+		font-size:$global-font-size;
+	}
+	&.table-td-striped{
+		table-layout: fixed;
+		border-left: 0;
+		background-color: transparent;
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+}
+.panel.plan-box .table{
+	width:100%;
+	margin-bottom:0;
+	border:0;
+}
+
+.table-striped tbody>tr{
+	&:nth-child(odd)>td,&:nth-child(odd)>th{
+		background-color:#fff
+	}
+	&>td>p,&>td>p>a{
+		word-break:break-all;
+	}
+}
+
+table td[class*="span"],
+table th[class*="span"],
+.row-fluid table td[class*="span"],
+.row-fluid table th[class*="span"]{
+	display:table-cell;
+	float:none;margin-left:0
+}
+
+.auth-staff tbody>tr>td{
+	table-layout: fixed;
+	word-break:break-all;
+}
+
+::-webkit-scrollbar{
+	width:7px;
+	height:7px;
+}
+::-webkit-scrollbar-thumb{
+	background-color:rgba(50,50,50,0.3);
+	&:hover{
+		background-color:rgba(50,50,50,0.6);
+	}
+}
+
+::-webkit-scrollbar-track{
+	background-color:rgba(50,50,50,0.1);
+	&:hover{
+		background-color:rgba(50,50,50,0.2);
+	}
+}
+/* select,textarea,input 公共 */
+[data-toggle="buttons"]>.btn>input[type="radio"], 
+[data-toggle="buttons"]>.btn>input[type="checkbox"] {
+	display: none;
+}
+select,textarea,input[type="text"],
+input[type="password"],input[type="datetime"],
+input[type="datetime-local"],input[type="date"],
+input[type="month"],input[type="time"],
+input[type="week"],input[type="number"],
+input[type="email"],input[type="url"],
+input[type="search"],input[type="tel"],
+input[type="color"],.uneditable-input{
+	display:inline-block;
+	padding:4px 6px;
+	margin-bottom:10px;
+	font-size: $global-font-size;
+	line-height:$global-line-height;
+	color: $global-font-color !important;
+	vertical-align:middle;
+}
+textarea{
+	height:auto
+}
+textarea,input[type="text"],input[type="password"],
+input[type="datetime"],input[type="datetime-local"],
+input[type="date"],input[type="month"],
+input[type="time"],input[type="week"],
+input[type="number"],input[type="email"],
+input[type="url"],input[type="search"],
+input[type="tel"],input[type="color"],
+.uneditable-input{
+	background-color: $global-input-bg-color;
+	border:1px solid $global-input-border-color;
+	@include box-shadow(inset 0 1px 1px rgba(0,0,0,0.075));
+	@include transition(border linear .2s,box-shadow linear .2s);
+}
+textarea:focus,input[type="text"]:focus,
+input[type="password"]:focus,input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,input[type="date"]:focus,
+input[type="month"]:focus,input[type="time"]:focus,
+input[type="week"]:focus,input[type="number"]:focus,
+input[type="email"]:focus,input[type="url"]:focus,
+input[type="search"]:focus,input[type="tel"]:focus,
+input[type="color"]:focus,.uneditable-input:focus{
+	border-color:rgba(82,168,236,0.8);
+	outline:0;
+	outline:thin dotted \9;
+	@include box-shadow(inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(82,168,236,0.6));
+}
+input[type="radio"],input[type="checkbox"]{
+	margin:4px 0 0;
+	margin-top:1px \9;
+	line-height:normal
+}
+input[type="file"],input[type="image"],input[type="submit"],
+input[type="reset"],input[type="button"],input[type="radio"],
+input[type="checkbox"]{
+	width:auto;
+}
+input[type="text"]+button[type="button"]:focus{
+	outline:0;
+}
+select,input[type="file"]{
+	height:30px;
+	line-height:30px
+}
+select{
+	width:220px;
+	background-color: $global-input-bg-color;
+	border:1px solid $global-input-border-color;
+}
+select[multiple],select[size]{
+	height:auto;
+}
+select:focus,input[type="file"]:focus,
+input[type="radio"]:focus,input[type="checkbox"]:focus{
+	outline:thin dotted #333;
+	outline:5px auto -webkit-focus-ring-color;
+	outline-offset:-2px;
+}
+.uneditable-input,.uneditable-textarea{
+	color:#999;
+	cursor:not-allowed;
+	background-color:#fcfcfc;
+	border-color: $global-input-bg-color;
+	@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.025));
+}
+.uneditable-input{
+	overflow:hidden;
+	white-space:nowrap
+}
+.uneditable-textarea{
+	width:auto;
+	height:auto
+}
+input:-ms-input-placeholder,
+input::-moz-placeholder,
+input::-webkit-input-placeholder,
+textarea:-ms-input-placeholder,
+textarea::-moz-placeholder,
+textarea::-webkit-input-placeholder{
+	@include opacity(0);
+}
+
+input.placeholder,textarea.placeholder{
+	color:#999 !important;
+}
+
+.radio,.checkbox{
+	min-height:20px;
+	padding-left:20px
+}
+.radio input[type="radio"],
+.checkbox input[type="checkbox"]{
+	float:left;
+	margin-left:-20px
+}
+.controls>.radio:first-child,
+.controls>.checkbox:first-child{
+	padding-top:5px
+}
+.radio.inline{
+	display:inline-block;
+	margin-bottom:0;
+	vertical-align:middle;
+	margin-right:10px
+}
+.checkbox.inline{
+	display:inline-block;
+	margin-bottom:0;
+	vertical-align:middle;
+	margin-right:10px
+}
+.radio.inline+.radio.inline,
+.checkbox.inline+.checkbox.inline{
+	margin-right:10px
+}
+input[class*="span"],
+select[class*="span"],
+textarea[class*="span"],
+.uneditable-input[class*="span"],
+.row-fluid input[class*="span"],
+.row-fluid select[class*="span"],
+.row-fluid textarea[class*="span"],
+.row-fluid .uneditable-input[class*="span"]{
+	float:none;
+	margin-left:0
+}
+.input-append input[class*="span"],
+.input-append .uneditable-input[class*="span"],
+.input-prepend input[class*="span"],
+.input-prepend .uneditable-input[class*="span"],
+.row-fluid input[class*="span"],
+.row-fluid select[class*="span"],
+.row-fluid textarea[class*="span"],
+.row-fluid .uneditable-input[class*="span"],
+.row-fluid .input-prepend [class*="span"],
+.row-fluid .input-append [class*="span"]{
+	display:inline-block
+}
+input,textarea,.uneditable-input{
+	margin-left:0
+}
+input[disabled],select[disabled],
+textarea[disabled],input[readonly],
+select[readonly],textarea[readonly]{
+	cursor:not-allowed;
+	background-color: $global-disabled-color;
+}
+input[type="radio"][disabled],
+input[type="checkbox"][disabled],
+input[type="radio"][readonly],
+input[type="checkbox"][readonly]{
+	background-color:transparent;
+}
+input[readonly].datepicker-input{
+	cursor: pointer;
+}

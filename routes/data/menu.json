@@ -1,0 +1,226 @@
+[{
+        "id": 3157,
+        "parentId": "-1",
+        "icon": "fa fa-browser icon",
+        "name": "上传附件",
+        "action": "",
+        "children": [{
+            "id": 142314,
+            "parentId": 3157,
+            "icon": "fa fa-office icon",
+            "name": "示例展示",
+            "action": "/uploader?m=142314"
+        }]
+    },
+    {
+        "id": 4140,
+        "parentId": "-1",
+        "icon": "fa fa-browser icon",
+        "name": "门户网站",
+        "action": "",
+        "children": [{
+            "id": 4110,
+            "parentId": 4140,
+            "icon": "fa fa-office icon",
+            "name": "门户组件",
+            "action": "/mhlist?m=4110"
+        }]
+    },
+    {
+        "id": 5210,
+        "parentId": "-1",
+        "icon": "fa fa-browser icon",
+        "name": "富文本编辑器",
+        "action": "",
+        "children": [{
+            "id": 5201,
+            "parentId": 5210,
+            "icon": "fa fa-office icon",
+            "name": "富文本编辑器",
+            "action": "/ueditor?m=5201"
+        }]
+    },
+    {
+        "id": 3231,
+        "parentId": "-1",
+        "icon": "fa fa-sitemap icon",
+        "name": "人员控件",
+        "action": "",
+        "children": [{
+                "id": 3232,
+                "parentId": 3231,
+                "icon": "fa fa-sitemap icon",
+                "name": "jctree",
+                "action": "/jctree?m=3232"
+            }
+        ]
+    },
+    {
+        "id": 3193,
+        "parentId": "-1",
+        "icon": "fa fa-interaction icon",
+        "name": "BtSp",
+        "action": "",
+        "children": [{
+            "id": 3194,
+            "parentId": 3193,
+            "icon": "fa fa-users icon",
+            "name": "示例展示",
+            "action": "",
+            "children": [{
+                    "id": 3195,
+                    "parentId": 3194,
+                    "icon": "fa fa-angle-right",
+                    "name": "dropdown",
+                    "action": "/dropdown?m=3195"
+                },
+                {
+                    "id": 3196,
+                    "parentId": 3194,
+                    "icon": "fa fa-angle-right",
+                    "name": "Tooltip",
+                    "action": "/tooltip?m=3196"
+                },
+                {
+                    "id": 3197,
+                    "parentId": 3194,
+                    "icon": "fa fa-angle-right",
+                    "name": "Popover",
+                    "action": "/popover?m=3197"
+                },
+                {
+                    "id": 3198,
+                    "parentId": 3194,
+                    "icon": "fa fa-angle-right",
+                    "name": "downarea",
+                    "action": "/downarea?m=3198"
+                },
+                {
+                    "id": 3199,
+                    "parentId": 3194,
+                    "icon": "fa fa-angle-right",
+                    "name": "tabs",
+                    "action": "/tabs?m=3199"
+                },
+                {
+                    "id": 3200,
+                    "parentId": 3194,
+                    "icon": "fa fa-angle-right",
+                    "name": "Datepicker",
+                    "action": "/datepicker?m=3200"
+                }
+            ]
+        }]
+    },
+    {
+        "id": 3314,
+        "parentId": "-1",
+        "icon": "fa fa-decision icon",
+        "name": "echarts",
+        "action": "",
+        "children": [{
+                "id": 3316,
+                "parentId": 3314,
+                "icon": "fa fa-decision icon",
+                "name": "echarts",
+                "action": "/echarts?m=3316"
+            }
+        ]
+    },
+    {
+        "id": 3468,
+        "parentId": "-1",
+        "icon": "fa fa-message icon",
+        "name": "日历插件",
+        "action": "",
+        "children": [{
+                "id": 3470,
+                "parentId": 3468,
+                "icon": "fa fa-review icon",
+                "name": "Calendar",
+                "action": "/calendar?m=3470"
+            }
+        ]
+    },
+    {
+        "id": 3287,
+        "parentId": "-1",
+        "icon": "fa fa-administrative icon",
+        "name": "验证插件",
+        "action": "",
+        "children": [{
+                "id": 3393,
+                "parentId": 3287,
+                "icon": "fa fa-voiture-management icon",
+                "name": "Validate",
+                "action": "/validate?m=3393"
+            }
+        ]
+    },
+    {
+        "id": 4287,
+        "parentId": "-1",
+        "icon": "fa fa-administrative icon",
+        "name": "动态行",
+        "action": "",
+        "children": [{
+                "id": 4393,
+                "parentId": 4287,
+                "icon": "fa fa-voiture-management icon",
+                "name": "Dynrow",
+                "action": "/dynrow?m=4393"
+            }
+        ]
+    },
+    {
+        "id": 3133,
+        "parentId": "-1",
+        "icon": "fa fa-administrative icon",
+        "name": "表单布局",
+        "action": "",
+        "children": [{
+            "id": 3154,
+            "parentId": 3133,
+            "icon": "fa fa-users icon",
+            "name": "列表页面",
+            "action": "/user?m=3154"
+        },
+        {
+            "id": 3155,
+            "parentId": 3133,
+            "icon": "fa fa-users icon",
+            "name": "公文表单",
+            "action": "/form1?m=3155"
+        }]
+    },
+    {
+        "id":5144,
+        "parentId":"-1",
+        "icon":"fa fa-administrative icon",
+        "name":"IDE",
+        "action":"",
+        "children":[{
+            "id":5155,
+            "parentId":5144,
+            "icon":"fa fa-administrative icon",
+            "name":"IDE-1",
+            "action":"/ide-1?m=5155"
+        },
+        {
+            "id":5156,
+            "parentId":5144,
+            "icon":"fa fa-cog icon",
+            "name":"IDE-2",
+            "action":"/ide-2?m=5156"
+        },
+        {
+            "id":5157,
+            "parentId":5144,
+            "icon":"fa fa-cog icon",
+            "name":"IDE-3",
+            "action":"/ide-3?m=5157"
+        }
+    ]
+    }
+    
+]

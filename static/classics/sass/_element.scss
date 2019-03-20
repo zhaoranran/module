@@ -1,0 +1,22 @@
+.jctree-btn {
+    height: 34px;
+    line-height: 34px;
+    color: $jctree-btn-color;
+    background-color: $jctree-btn-bg-color !important;
+    border: 0 none;
+    padding: 0 8px;
+    &:focus,&:hover{
+      background-color:darken($jctree-btn-bg-color , 10%) !important;
+      color:$jctree-btn-color !important;
+    }
+  }   
+  .jctree-icon {
+    width:63px !important;
+    height:30px !important;
+    line-height: 30px !important;
+    text-align: center;
+    margin-bottom:0px !important;
+    }
+  .jctree-icon + .jctree-icon{
+    margin-top:7px;
+  }

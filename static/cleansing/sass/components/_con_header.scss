@@ -1,0 +1,90 @@
+﻿/*!
+ * Path : components/_con_header.scss
+ * 内容页header区域按钮
+ *		列表按钮、nav-tabs、tabs-wrap
+ * Copyright 2016 JiaCheng GeZhiGang
+*/
+.panel .table-wrap .input-style,
+.cbox .input-style,
+h2 .input-style{
+	background-color:transparent;
+	display:inline-block;
+	height:31px;
+	position:relative;
+	width:100%;
+}
+h2 .input-style{width:45px;margin: 0 3px;}
+h2 .input-style input{width:45px;margin-bottom: 6px; text-align: center;}
+
+
+.panel .table-wrap .input-style input,
+.panel .table-wrap .input-style label,
+.cbox .input-style input,
+h2 .input-style input{
+	background-color: transparent;
+	border:0 none; 
+	border-bottom:1px solid #ccc;
+	box-shadow: none; 
+	height:31px;
+}
+
+.panel .table-wrap .input-style input{border-radius:0;width:100%;}
+.panel .table-wrap .input-style:before,.cbox .input-style:before,h2 .input-style:before{content:"";color:#ccc;font-size:12px;position:absolute;left:0px;bottom:0px;height:10px;border-left:1px solid #ccc;}
+.panel .table-wrap .input-style:after,.cbox .input-style:after,h2 .input-style:after{content:"";color:#ccc;font-size:12px;position:absolute;right:0px;bottom:0px;height:10px;border-right:1px solid #ccc;}
+
+/* 刘锡来留用css接口 auto-style 同 input-style */
+.panel .table-wrap .auto-style,.cbox .auto-style{background-color:transparent;display:inline-block;height:31px;position:relative;width:100%;}
+.panel .table-wrap .auto-style input,.cbox .auto-style input{background-color: transparent;border:0 none; border-bottom:1px solid #ccc;box-shadow: none; height:31px;}
+.panel .table-wrap .auto-style:before,.cbox .auto-style:before{content:"";color:#ccc;font-size:12px;position:absolute;left:0px;bottom:0px;height:10px;border-left:1px solid #ccc;}
+.panel .table-wrap .auto-style:after,.cbox .auto-style:after{content:"";color:#ccc;font-size:12px;position:absolute;right:0px;bottom:0px;height:10px;border-right:1px solid #ccc;}
+/* 刘锡来留用css接口结束 */
+.panel .table-link td,.panel .table-link th{padding: 6px 4px;}
+.table-link a.a-icon{min-width: 26px; text-align: center;padding: 0;}
+.first-striped>tbody>tr>td:first-child{
+	background-color:#f9f8f5;
+	text-align:right;
+	font-weight: bold;
+	white-space:nowrap;
+}
+.table-link thead>tr>th{background-color:#f9f8f5;text-align:center;}
+
+.panel .panel-con-wrap textarea{ width:100%;border-radius:0;}
+.panel-heading .a-icon{margin-top: -2px; margin-left: 10px;padding-left: 0;}
+.panel-heading,.modal-heading{font-size: $global-font-size +4;margin:0;line-height:18px;border:0 none;padding:24px 20px 2px;}
+.panel-heading h2,.modal-heading h4{float: left;font-size: $global-font-size +4;line-height:1.4285;margin:0;}
+.panel-heading small,.modal-heading small,.panel-heading h2 small,.modal-heading h4 small,.modal-header h4 small{color: #555;}
+.panel-heading small i.fa,.modal-heading small i.fa,.panel-heading h2 small i.fa,.modal-heading h4 small i.fa{font-size: $global-font-size + 2;vertical-align: bottom;}
+
+
+
+.modal .tabs-wrap+.panel{border-top-left-radius: 0;}
+.modal .tabs-wrap-in{margin:15px;}
+.modal .tabs-wrap .nav{font-size:$global-font-size - 1;border:none;}
+.modal .tabs-wrap .nav>li>a{border-radius:0;margin:0;border-width:0;display:inline-block;text-align: center;}
+.modal .tabs-wrap .nav-tabs>li.active{-webkit-box-shadow:0 0 1px rgba(0,0,0,0.12);box-shadow:0 0 1px rgba(0,0,0,0.12);}
+.modal .tabs-wrap-in .nav-tabs>li.active{-webkit-box-shadow:none;box-shadow:none;background-color:#0D6BAB;}
+.modal .tabs-wrap-in .nav-tabs>li{margin-left: 5px;}
+.index-inform .tabs-wrap-in .nav-tabs > li { margin-left: 1px;}
+.modal .tabs-wrap-in .nav-tabs>li:first-child{margin-left: 0;}
+.modal .tabs-wrap .nav-tabs>li>a{line-height:1.5;color:#43a0f2;border-top:2px solid transparent;background-color: #f3f3f3;}
+.modal .tabs-wrap .nav-tabs>li>a:hover,.modal .tabs-wrap .nav-tabs>li>a:focus{background:#eee;border-color:transparent;}
+.modal .tabs-wrap .nav-tabs>li.active>a,.modal .tabs-wrap .nav-tabs>li.active>a:hover,.modal .tabs-wrap .nav-tabs>li.active>a:focus{color:#888;background:#fff;border-width: 0;border-top:2px solid lighten($global-header-color ,5%);outline: none;outline:none;-moz-outline:none;}
+.modal .tabs-wrap-in .nav-tabs>li.active>a,.modal .tabs-wrap-in .nav-tabs>li.active>a:hover,.modal .tabs-wrap-in .nav-tabs>li.active>a:focus{color:#fff;background: lighten($global-btn-drak ,5%);border-top:2px solid transparent;}
+
+.panel textarea{width:100%;border-radius:0;margin:5px 0; resize: vertical;overflow-y:auto;}
+.panel-in-box .br{margin-bottom: 0;}
+.panel-in-box .br input{margin-top:-1px; vertical-align: middle;}
+.panel-tab-con{position:relative;}
+.heading-btn .btn{background-color: lighten($global-btn-drak ,10%);border:1px solid $global-btn-drak;color:#fff;margin-left:13px;}
+.heading-btn .btn:focus,.heading-btn .btn:hover{background-color:$global-btn-drak;}
+
+.modal.panel{margin-bottom:0;background-color:transparent;border:0px solid transparent;border-radius:0;-webkit-box-shadow:none;box-shadow:none;position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;display:none;overflow:hidden;}
+.modal-header{background-color: #F9F8F5;}
+.modal-content{-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0;}
+.modal.panel .modal-content .table-wrap,.modal.panel .modal-content .table-wrap .table{margin: 0 0 20px;}
+.modal.panel .modal-content.fileback .table-wrap,.modal.panel .modal-content.fileback .table-wrap .table{margin-bottom: 20px;}
+.modal .tabs-wrap-in,.modal .modal-content .table-wrap.us-list{margin: 0;margin-bottom: 15px;}
+.modal .inline-tree .input-group-btn{width:20%;}
+.modal .modal-heading{padding: 15px 5px 10px 5px;}
+.modal .dialog{margin-top: 0;}
+.modal .p,.modal .table{margin-bottom: 0;}

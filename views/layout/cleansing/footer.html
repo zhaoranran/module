@@ -1,0 +1,82 @@
+</section>
+</section>
+</section>
+</section>
+<div id="loginAutoAttence"></div>
+<!--当前主题下的一些引用文件， 其他模块，左菜单插件等...-->
+<script type="text/javascript" src="<%= rootPath%><%= styles%>/js/jc/jc.cleansing.js"></script>
+<script type="text/javascript" src="<%= rootPath%><%= styles%>/js/jc/jc.nav.js"></script>
+<script type="text/javascript">
+    var desktop = {},$document = $(document);
+
+    $document.ready(function(){
+        if(!JC.histObj){
+            JC.histObj = new JC.Historys();
+        }
+        new JC.UserInfo({
+            color : '' || 'blue',
+            theme : '' || 'standard',
+            font : '' || 'standard',
+            voice : $.cookie('voiceSwitch') === 'false' ? 'off' :'on'
+        });
+        /* JC.LoadPage({
+            url  : '/uploader?m=142314',
+        }); */
+
+        //初始化全局的展开收起
+        $('#search-shrinkage').searchControl();
+        //初始化全局的时间插件
+        $('.datepicker-input').datepicker();
+        //左菜单初始化
+        desktop.sidemenu = new JC.SideMenu({
+            ele: $('#JCLeftMenu'),
+            first: $("#navigation-header"),
+            ready: function(){
+                //初始化其他模块
+                $("#topnav-other_modules").other();
+                var menuId = '<%= menuId%>';
+                if(menuId){
+                    this.goActivity('<%= menuId%>');
+                    $('#navigationMenu').html(this.getCrumbs('<%= menuId%>'));
+                }
+            }
+        });
+        //点击导航绘制左菜单功能
+        $document.on('click' , '[data-head="menu"]' , function(e){
+            var $this = $(e.target);
+            if(!$this.is('a')) $this = $this.parent();
+            var actcion = $this.attr('action'),
+                id  = $this.attr('id').split('_')[1],
+                isRootPotal = $this.attr('potal');
+
+            JC.navigation(id);
+            desktop.sidemenu.headMenu = null;
+            desktop.sidemenu.drawLeft(id);
+
+            if(actcion){
+                JC.LoadPage({
+                    id : id,
+                    name : $this.attr('name'),
+                    url  : actcion,
+                } , true);
+            }
+        });
+       //左侧菜单展开收起
+        $(".menu-toggle").click(function(){
+            var $left = $(this).find("i");
+            if($left.hasClass('fa-caret-left')){
+                $(this).find("i").addClass('fa-caret-right');
+                $(this).find("i").removeClass('fa-caret-left');
+                $("#nav").css({'positoin':'absolute',"left":"-153px"});
+                $("#scrollable").addClass("scrollable-left");
+            }else {
+                $(this).find("i").removeClass('fa-caret-right');
+                $(this).find("i").addClass('fa-caret-left');
+                $("#nav").css({'positoin':'absolute',"left":"0px"});
+                $("#scrollable").removeClass("scrollable-left");
+            }
+        });
+    });
+</script>
+</body>
+</html>

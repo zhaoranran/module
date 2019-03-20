@@ -1,0 +1,72 @@
+<nav class="header-nav fl">
+        <ul class="fl">
+            <li class="padd" style="width: 300px; ">
+                    <h1 style="font-size: 24px;">
+                        <a href="/">
+                            <img width="272" height="28" src="<%= rootPath%><%= styles%>/images/logo.png?v=988e75263f">
+                        </a>
+                    </h1>
+                </li>
+        </ul>
+        <ul class="clearfix fl" id="navigation-header">
+            
+        </ul>
+    </nav>
+    <div class="header-left fr">
+            <ul class="clearfix">
+                <li><a href="javascript: void(0)" data-toggle="tooltip" data-placement="bottom" title="" data-container="body" data-original-title="帮助"><i class="fa fa-question-sign"></i></a></li>
+                <li id="user-avatar">
+                    <a href="javascript: void(0)"><i class="fa fa-user22"></i></a>
+                    <div class="h-nav-list" id="h-nav-list" style="display: none;">
+                            <!--<shiro:principal property="dutyIdValue" />-->
+                            <div class="h-nav-top"></div>
+                            <div class="h-nav-center">
+                                <h2>欢迎您，<shiro:principal property="displayName" /></h2>
+                                <h3 id="onlineCount">当前有<span id="lineCount">0</span>人在线</h3>
+                                <ul class="clearfix">
+                                    <!-- <li>
+                                        <span><i class="fa fa-pifu rounded"></i></span>
+                                        <div class="h-div-first">
+                                            <a href="javascript:void(0)" class="h-nav-red rounded" name="red" types="color"></a>
+                                            <a href="javascript:void(0)" class="h-nav-blue rounded" name="blue" types="color"></a>
+                                            <a href="javascript:void(0)" class="h-nav-green rounded" name="green" types="color"></a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span><i class="fa fa-pifu rounded"></i></span>
+                                        <div>
+                                            <button class="button-lg rounded" name="classics" types="theme">经典</button>
+                                            <button class="button-lg rounded" name="standard" types="theme">标准</button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span><i class="fa fa-ziti rounded"></i></span>
+                                        <div>
+                                            <button class="button-lg rounded" name="standard" types="font">标准</button>
+                                            <button class="button-lg rounded" name="big" types="font">大</button>
+                                        </div>
+                                    </li> -->
+                                    <li>
+                                        <span><i class="fa fa-volume-off rounded" style="padding-left: 6px;font-size: 20px;"></i></span>
+                                        <div>
+                                            <button class="button-lg rounded" types="voice" name="on">有声</button>
+                                            <button class="button-lg rounded" types="voice" name="off">静音</button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="h-nav-btm m-t">
+                                    <a href="javascript:void(0)" class="fl" onClick="JCF.LoadPage({name : '个人信息' , url : '/sys/user/userInfo.action'});">个人资料</a>
+                                    <a href="javascript:void(0)" class="fr Logging-Out" onClick="exit()">安全退出</a>
+                                </div>
+                            </div>
+                            <div class="h-nav-bottom"></div>
+                        </div>
+                </li>
+                <li><a href="javascript: void(0)" data-toggle="tooltip" data-placement="bottom" title="" data-container="body" data-original-title="未读邮件"><i class="fa fa-volume-up" style="background-color: #ffae00;"><em class="backlog">5</em></i></a></li>
+                <li><a href="javascript: void(0)" data-toggle="tooltip" data-placement="bottom" title="" data-container="body" data-original-title="写邮件"><i class="fa fa-Outbox"></i></a></li>
+                <li><a href="javascript: void(0)" data-toggle="tooltip" data-placement="bottom" title="" data-container="body" data-original-title="通讯录"><i class="fa fa-address"></i></a></li>
+                <li><a href="javascript: void(0)" data-toggle="tooltip" data-placement="bottom" title="" data-container="body" data-original-title="代办任务"><i class="fa fa-calendar2"></i></a></li>
+            </ul>
+            
+        </div>
+    

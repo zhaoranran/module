@@ -1,0 +1,88 @@
+<%- include('../../../layout/'+styles+'/header.html') %>
+<section class="scrollable padder jcGOA-section" id="scrollable">
+	<header class="crumbs-container pull-in" id="navigationMenu"></header>
+    <section class="panel clearfix search-box search-shrinkage m-t-md">
+	<!-- 
+	data-pick-time——是否显示时间，默认为false
+	data-pick-date——是否显示日期，默认为true
+	data-pick-format——日期格式，默认为yy-mm-dd
+	data-start-date——起始日期，只能选择他之后的日期，默认为null
+	data-end-date——起始日期，只能选择他之前的日期，默认为null
+	data-ref-obj——时间段功能，只有两个参数
+	1.目标元素标识 
+	2.限制类型：lt等于小于目标，gt等于大于目标，默认为null
+	data-date-viewmode——显示视图(0=天 1=月 2=年)，默认为0
+	data-date-minviewmode——最小显示视图(0=天 1=月 2=年)，默认为0
+	-->
+		<h2 class="panel-heading clearfix">pages/com/datepicker/datepicker.html</h2>
+		<div class="search-line hide" style="display: block;">
+		<!--<div class="content">-->
+			<form class="table-wrap form-table">
+				<table class="table table-td-striped" id="testTable">
+					<tr>
+						<td style="width:15%"  class="form-lable">日期控件</td>
+						<td style="width:35%"><input type="text"  class="datepicker-input"  readonly></td>
+						<td style="width:15%"  class="form-lable">日期控件——显示时间</td>
+						<td style="width:35%"><input type="text" class="datepicker-input"  data-pick-time="true" data-date-format="yyyy-MM-dd" readonly value="2018-10-18 00:00:00"></td>
+					</tr>
+					<tr>
+						<td class="form-lable">
+							<span style="width:100%;display:block">日期控件——起止时间</span>
+							<span style="width:100%;display:block">1.只能选择2018.3.26之后的日期</span>
+						</td>
+						
+						<td><input type="text" class="datepicker-input"  data-start-date="2018-03-26" readonly></td>
+						<td  class="form-lable">2.只能选择2018.3.26之前的日期</td>
+						<td><input type="text" class="datepicker-input"  data-end-date="2018-03-26" readonly></td>
+					</tr>
+					<tr>
+						<!--(形式形式不可为yyyy-mm和yyyy)-->
+						<td  class="form-lable">日期控件——时间段 1.1开始时间</td>
+						<td><input type="text" id="searchtime1" class="datepicker-input"  data-ref-obj="#searchtime2 lt" readonly></td>
+						<td  class="form-lable">结束时间</td>
+						<td><input type="text" id="searchtime2" class="datepicker-input"  data-ref-obj="#searchtime1 gt" readonly></td>
+					</tr>
+					<tr>
+						<td  class="form-lable">日期控件——只显示时间</td>
+						<td><input type="text" class="datepicker-input"  data-pick-time="true" data-pick-date="false" data-date-format="HH:mm:ss" readonly></td>
+						<td  class="form-lable">日期控件——只显示年</td>
+						<td><input type="text" class="datepicker-input" data-date-viewmode="2" data-date-minviewmode="2" data-date-format="yyyy" readonly></td>
+					</tr>
+					<tr>
+						<td style="width:15%"  class="form-lable">日期控件——只显示月</td>
+						<td style="width:40%"><input type="text" class="datepicker-input" data-date-viewmode="1" data-date-minviewmode="1" data-date-format="yyyy-MM" readonly></td>
+						<td style="width:15%"  class="form-lable">日期控件——显示时间</td>
+						<td style="width:35%"><input type="text" class="datepicker-input"  data-pick-time="true" data-date-format="yyyy-MM-dd" readonly></td>
+					</tr>
+					<tr>
+						<td style="width:15%"  class="form-lable">时间段</td>
+						<td style="width:35%">
+						<div style="width:100%;display:table;">
+									<input value="" class="datepicker-input" type="text" id="queryMinYear" name="queryMinYear" data-date-viewmode="2" data-date-minviewmode="2" data-date-format="yyyy" data-ref-obj="#queryMaxYear lt">
+									<div class="input-group-btn w30">-</div>
+									<input value="" class="datepicker-input" type="text" id="queryMaxYear" name="queryMaxYear" data-date-viewmode="2" data-date-minviewmode="2" data-date-format="yyyy" data-end-date="2018-10-22" data-ref-obj="#queryMinYear gt">
+								</div>
+						</td>
+						<td style="width:15%"  class="form-lable">日期控件——显示时间</td>
+						<td style="width:35%"><input type="text" class="datepicker-input"  data-pick-time="true" data-date-format="yyyy-MM-dd" readonly value="2018-10-18 00:00:00"></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</section>
+</section>
+<script>
+	$(".datepicker-input").datepicker();
+	var myDate = new Date;
+    var year = myDate.getFullYear();//获取当前年
+	$('#queryMinYear').on('changeDate', function(ev){
+		if(ev.date.getFullYear()>year){
+			alert('请选择小于当前年份的日期');
+			ev.date = '';
+			$('#queryMinYear').val('');
+			return false;
+		}
+	});
+	$('#queryMinYear').val('');
+</script>
+<%- include('../../../layout/'+styles+'/footer.html') %>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html class="jcGOA">
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Server</title>
+    <meta name="author" content="gezg">
+    <link rel="stylesheet" type="text/css" href="<%= rootPath%>public/fonts/fontface.css">
+    <link rel="stylesheet" type="text/css" href="<%= rootPath%><%= styles%>/css/simple.css">
+    <link rel="stylesheet" type="text/css" href="<%= rootPath%>public/css/bootstrap/jc.bootstrap.css">
+
+    <script type="text/javascript" src="<%= rootPath%>public/js/lib/jquery.min.js"></script>
+    <script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-base/jc.lib.js"></script>
+    <script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-layer/jc.layer.js"></script>
+    <script type="text/javascript" src="<%= rootPath%>public/js/bootstrap/jc.bootstrap.js"></script>
+    <script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-msgtip/msgTip.js"></script>
+
+    <script>
+        function getRootPath(){
+            return 'server';
+        }
+    </script>
+    <!--[if lt IE 9]>
+		<script src="<%= rootPath%>/js/lib/ie/html5shiv.js?v=758616407d"></script>
+	<![endif]-->
+</head>
+<body>
+    <section class="jcGOA-wrap">
+        <!--顶部导航-->
+        <header class="header navbar-fixed-top" id="desktop_header">
+            
+            <% include ./navbar.html %>
+        </header>
+        <!--页面主题，包含左菜单-->
+        <section>
+            <section class="jcGOA-con">
+                <!--左侧菜单-->
+                <aside class=" sidebar aside-md bg-light" id="nav">
+                    <section class="jcGOA-wrap jcGOA-menu">
+                        <section class="menu">
+                                <div class="menu-toggle-middle">
+                                    <a href="#nav" data-id="class:nav-xs" data-toggle="tooltip" data-placement="top" title="" data-container="body" data-original-title="隐藏菜单"  class="fr menu-toggle" data-tip="menu">
+                                        <!-- <i class="fa fa-align-justify"></i> -->
+                                        <i class="fa fa-caret-left"></i>
+                                    </a>
+                                </div>
+                                <div id="slim-scroll">
+                                    <nav class="nav-primary hidden-xs nav-back">
+                                        <ul class=" nav-left" id="JCLeftMenu"></ul>
+                                    </nav>
+                                </div>
+                        </section>
+                    </section>
+                </aside>
+                <!--业务页面主题内容-->
+                <section class="jcGOA-container">

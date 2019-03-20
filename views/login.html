@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html class="jcGOA">
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Server</title>
+    <meta name="author" content="gezg">
+	<link rel="stylesheet" type="text/css" href="<%= rootPath%>/login/css/style.css">
+	<link rel="stylesheet" type="text/css" href="<%= rootPath%>/login/css/login.css">
+	<!-- <script type="text/javascript" src="<%= rootPath%>/js/lib/jquery.min.js"></script>
+	<script src="<%= rootPath%>/js/lib/placeholder.js"></script> -->
+	</head>
+	<body class="big">
+		<div id="content">
+			<div class="info">
+				<div class="title">
+					<div class="logo"></div>
+					<div class="header-title"></div>
+				</div>
+				<form id="loginForm" action="/loginCheck" method="post">
+					<div id="form" class="form">
+						<h3>请登录</h3>
+						<div class="userInfo">
+							<input type="text" id="username" name="username" placeholder="用户名"/>
+							<label for="username">
+								<i class="iconfont icon-user"></i>
+							</label>
+						</div>
+						<div class="userInfo">
+							<input type="password" id="password" name="password" placeholder="密 码"/>
+							<label for="password">
+								<i class="iconfont icon-kaisuo"></i>
+							</label>
+						</div>
+						<div id="errormsg" class="error" ><%= message %></div>
+						<div class="remember">
+							<label class="label">
+								<input id="remember" type="checkbox">记住用户名
+							</label>
+							<a id="showForget">找回密码</a>
+						</div>
+					</div>
+					<div class="userInfo submit">
+						<!-- <a  id="loginBtn" href="javascript:void(0);" id="loginCheck">登录</a> -->
+						<button href="javascript:void(0);" type="submit" class="btn" id="loginCheck">登录</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		
+		/* function setWindowWidth(){
+			var $document = window.screen.availWidth;
+			var $body = $("body");
+			if($document > 1440){
+				$body.attr("class","big-1920");
+			} 
+			if($document < 1440){
+				$body.attr("class","big-1366");
+			}
+		}
+		$(document).ready(function(){
+			setWindowWidth();
+			$(window).resize(function(){
+				setWindowWidth();
+			});
+			$('input[placeholder]').placeholder();
+		}); */
+	
+	</script>
+</html>
+
+	

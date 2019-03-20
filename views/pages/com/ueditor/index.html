@@ -1,0 +1,11 @@
+<%- include('../../../layout/'+styles+'/header.html') %>
+<div class="myUeditor"></div>
+<script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-ueditor/ueditor.all.min.js"></script>
+<script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-ueditor/lang/zh-cn/zh-cn.js"></script>
+<script>
+    var myUeditor = UE.getEditor("myUeditor");
+</script>
+
+<%- include('../../../layout/'+styles+'/footer.html') %>
+

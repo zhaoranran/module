@@ -1,0 +1,273 @@
+<link rel="stylesheet" type="text/css" href="<%= rootPath%>public/node_modules/jc-tree/css/jctree.min.css">
+<div class="modal fade panel" id="userEdit" aria-hidden="false">
+    <div class="modal-dialog w900" style="width:1000px;">
+    	<form class="table-wrap form-table" id="userForm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h4 class="modal-title" id="actionTitle">编  辑</h4>
+            </div>
+            <div class="modal-body">
+            <section class="dis-table">
+                <section class="dis-table-cell w105" >
+                    <img src="<%= rootPath%>public/images/iphoto.jpg" id="userPhotoImg" height="105" width="105"/>
+                    <div class="form-btn">
+                        <button class="btn dark w105" type="button" data-target="#userMyModal" data-toggle="modal" id="userEditUpload">上传头像</button>
+                    </div>
+                </section>
+                       
+                <section class="panel-tab-con dis-table-cell">
+                    <!-- tabs -->
+                    <section class="tabs-wrap tabs-wrap-in">
+                        <!-- 同时添加 tabs-wrap-in 类-->
+                        <ul class="nav nav-tabs">
+                            <li class="active" id="m1">
+                                <a href="#messages1" data-toggle="tab">基本信息</a>
+                            </li>
+                            <!-- 根据a标签href属性相对应的id，切换tab-pane -->
+                            <li id="m2">
+                                <a href="#messages2" data-toggle="tab">其他信息</a>
+                            </li>
+                            <!--<li id="m3">
+                                <a href="#messages3" data-toggle="tab">用户角色</a>
+                            </li>-->
+                        </ul>
+                    </section>
+                    <!-- tabs end -->
+                    <!-- tabs模块下紧接panel模块 -->
+                        <div class="tab-content" style="overflow:hidden;">
+                            <div class="tab-pane for fade active in" id="messages1">
+                                <!-- tab-pane tab切换显示的模块 内部panel的类名替换为panel-in-box -->
+                                
+                                	<input type="hidden" id="id" name="id" value="0">
+                                    <input type="hidden" id="token" name="token" value="${data.token}">
+                                    <input type="hidden" id="modifyDate" name="modifyDate">
+                                <div class="table-wrap form-table">
+                                    <table class="table table-td-striped">
+                                        <tbody>
+                                            <tr>
+                                                <td style="width:16%;" class="form-lable"><span class="required">*</span>登录名称</td>
+                                                <td style="width:34%;">
+                                                    <input type="text" id="loginName" name="loginName"/>
+                                                    <input type="hidden" id="loginNameOld" name="loginNameOld"/>
+                                                </td>
+                                                <td  style="width:16%;" class="form-lable"><span class="required">*</span>显示名称</td>
+                                                <td style="width:34%;">
+                                                    <input type="text" id="displayName" name="displayName"/>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="form-lable">用户性别</td>
+                                                <td>
+                                                	<select name="sex" id="sex" dictname="sex" parentcode="user" datatype="null">
+                                                		<option value="" selected="">-请选择-</option>
+                                                		<option value="sex_2">女</option>
+                                                		<option value="sex_1">男</option>
+                                                		<option value="sex_0">未知的性别</option>
+                                                	</select>
+                                                </td>
+                                                <td class="form-lable">用户性质</td>
+                                                <td>
+                                                    <select name="kind" id="kind" dictname="kind" parentcode="user" datatype="null">
+                                                    	<option value="" selected="">-请选择-</option>
+                                                    	<option value="kind_0">正式</option>
+                                                    	<option value="kind_1">临时</option>
+                                                    	<option value="kind_2">合同</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+											<tr>
+												<td class="form-lable">
+													<span class="required">*</span>部门
+												</td>
+												<td>
+													<!-- <div class="input-group inline-tree">
+														<input type="text" id="deptName" name="deptName" readonly /><input
+															type="hidden" id="deptId" name="deptId" /><a
+															class="btn btn-file input-group-btn" href="#"
+															id="showDeptTree" role="button" data-toggle="modal"><i
+															class="fa fa-group"></i></a>
+                                                    </div> -->
+                                                    <div id="jctreeUser"></div>
+													<p class="hide" id="deptError" style="color:red;">此信息不能为空</p>
+												</td>
+												<td class="form-lable"><span class="required">*</span>序号</td>
+                                                <td><input type="text" id="orderNo" name = "orderNo"/></td>
+											</tr>
+                                            <tr>
+                                                <td style="width:15%;" class="form-lable">用户编号</td>
+                                                <td>
+                                                    <input type="text" id="code" name="code"/>
+                                                </td>
+                                                <td class="form-lable">身份证号码</td>
+                                                <td><input type="text" id="cardNo" name = "cardNo"/></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="messages2">
+                                <!-- tab-pane tab切换显示的模块 内部panel的类名替换为panel-in-box -->
+                                    <div class="table-wrap form-table">
+                                        <table class="table table-td-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <td style="width:18%;" class="form-lable">出生日期</td>
+                                                    <td style="width:30%;">
+                                                        <input id="birthday" name = "birthday" class="datepicker-input" type="text" data-date-format="yyyy-MM-dd">
+                                                    </td>
+                                                    <td class="form-lable">籍贯</td>
+                                                    <td>
+                                                        <input type="text" id="hometown" name="hometown"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="form-lable">用户手机</td>
+                                                    <td>
+                                                        <input type="text" id="mobile" name = "mobile" maxlength="11"/>
+                                                        <input type="hidden" id="mobileOld" name = "mobileOld"/>
+                                                    </td>
+                                                    <td class="form-lable">集团号码</td>
+                                                    <td>
+                                                        <input type="text" id="groupTel" name = "groupTel"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                	<td class="form-lable">用户邮箱</td>
+                                                    <td>
+                                                        <input type="text" id="email" name = "email"/>
+                                                    </td>
+                                                    <td class="form-lable">办公地点</td>
+                                                    <td>
+                                                        <input type="text" id="officeAddress" name="officeAddress"/>
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                	<td class="form-lable">办公电话</td>
+                                                    <td>
+                                                        <input type="text" id="officeTel" name = "officeTel"/>
+                                                    </td>
+                                                    <td class="form-lable">入党日期</td>
+                                                    <td><input id="entryPoliticalDate" name="entryPoliticalDate" class="datepicker-input" type="text" data-date-format="yyyy-MM-dd"></td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                	<td class="form-lable">学历</td>
+                                                    <td>
+                                                    	<select name="degree" id="degree" dictname="degree" parentcode="user" datatype="null">
+                                                    		<option value="" selected="">-请选择-</option>
+                                                    		<option value="degree_0">未知</option>
+                                                    		<option value="degree_1">博士</option>
+                                                    		<option value="degree_2">研究生</option>
+                                                    		<option value="degree_3">本科</option>
+                                                    		<option value="degree_4">大专</option>
+                                                    		<option value="degree_5">其他</option>
+                                                    	</select>
+                                                    </td>
+                                                    <td class="form-lable">机构管理员</td>
+                                                    <td>
+                                                        <label class="radio inline">
+                                                            <input type="radio" name="isAdmin" value="1" id="showAdminTree_t"/> 
+                                                            <a  href="#" role="button" data-toggle="modal" id="showAdminTree">是</a>
+                                                        </label>
+                                                        <label class="radio inline">
+                                                            <input type="radio" name="isAdmin" checked value="0"/>否
+                                                        </label>
+                                                        <input type="hidden" name="adminSideV" id="adminSideV">
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                	<td class="form-lable">是否是领导</td>
+                                                    <td>
+                                                        <label class="radio inline">
+                                                            <input type="radio" id="isLeader" name = "isLeader" value="1" class="leaderCla"/>是
+                                                        </label>
+                                                        <label class="radio inline">
+                                                            <input type="radio" id="isLeader" name = "isLeader" checked value="0" class="leaderCla"/>否
+                                                        </label>
+                                                    </td>
+                                                    <td class="form-lable">是否被考核</td>
+                                                    <td>
+                                                        <label class="radio inline">
+                                                            <input type="radio" id="isDriver" name = "isDriver" checked value="1"/>是
+                                                        </label>
+                                                        <label class="radio inline">
+                                                            <input type="radio" id="isDriver" name = "isDriver"  value="0"/>否
+                                                        </label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                	<td class="form-lable">密码提示问题</td>
+                                                    <td>
+														<select name="question" id="question" datatype="null">
+															<option value="" selected="">-请选择-</option>
+															<option value="question_2">您喜欢的动物？</option>
+															<option value="question_1">您的生日？</option>
+															<option value="question_4">您喜欢的城市？</option>
+															<option value="question_3">您喜欢的人？</option>
+														</select>
+                                                    </td>
+                                                    <td class="form-lable">密码问题答案</td>
+                                                    <td><input type="text" id="answer" name = "answer"></td>
+                                                </tr>
+                                                <input type="hidden" name="isCheck" value="1" />
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="table-wrap show us-list form-table-h" id="otherContentDIV">
+                                        <table class="table table-striped  m-b-md first-td-tc" id="otherDeptTable">
+                                            <tbody>
+                                               
+                                            </tbody>
+                                        </table>
+                                    </div>
+                            </div>
+                            <div class="tab-pane fade" id="messages3">
+                               <div class="ms2side__div">
+                                   <div class="ms2side__select">
+                                       <div class="ms2side__header">角色选择框</div>
+                                       <select title="角色选择框" name="roleList" id="roleList" size="0" multiple="multiple" class="select-list-h">
+                                       		<c:forEach items="${data.roleList}" var="role">
+                                            	<option value="${role.id}">${role.name}</option>
+                                            </c:forEach>
+                                       </select>
+                                       <select id="tempRoleList" name="tempRoleList" style="display: none;">
+                                           <c:forEach items="${data.roleList}" var="rolevo">
+                                               <option value="${rolevo.id}">${rolevo.name}</option>
+                                           </c:forEach>
+                                       </select>
+                                   </div>
+                                   <div class="ms2side__options" style="padding-top: 6.5px;">
+                                       <p class="AddOne ms2side__hide" title="添加" id="addRole"><span></span></p>
+                                       <p class="AddAll ms2side__hide" title="添加所有" id="addAllRole"><span></span></p>
+                                       <p class="RemoveOne ms2side__hide" title="删除" id="removeRole"><span></span></p>
+                                       <p class="RemoveAll ms2side__hide" title="删除所有" id="removeAllRole"><span></span></p>
+                                   </div>
+                                   <div class="ms2side__select">
+                                       <div class="ms2side__header">已选角色框</div>
+                                       <select title="已选角色框" name="chooseList" id="chooseList" size="0" multiple="multiple" class="select-list-h"></select>
+                                   </div>
+                               </div>
+                            </div>
+                            
+                        </div>
+                </section>
+             </section>
+            </div>
+            <div class="modal-footer form-btn">
+                <button class="btn dark" type="button" id="saveAndClose">保存</button><button class="btn" type="button" id="userDivClose">关 闭</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/ChinesePY.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/jquery.ztree.all-3.5.min.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/select2.all.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/jctree.js"></script>
+<script>
+    $(document).ready(function() {
+        
+    });
+</script>

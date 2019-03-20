@@ -1,0 +1,36 @@
+
+.jcGOA-wrap > header ~ section {
+  top: 49px;
+}
+/*.crumbs-container .crumbs i:after {
+  content: "/\00a0";
+  padding: 0 5px 0 7px;
+  color: #555555;
+  font-style: normal;
+}
+
+.content {
+  overflow: auto !important;
+  .btn {
+    border-radius: 4px;
+  }
+
+}*/
+.jcGOA-container{
+  .crumbs-container {
+    height: 40px;
+    border-bottom: 1px solid #ccc;
+    background-color: #fff;
+    padding-top: 10px;
+    padding-left: 25px;
+
+  }
+  .con-header .crumbs i:after {
+    content: "/\00a0";
+    padding: 0 5px 0 7px;
+    color: #555555;
+    font-style: normal;
+  }
+
+}
+

@@ -1,0 +1,137 @@
+﻿.slideBox{ width:100%;overflow:hidden; position:relative;}
+.slideBox .hd ul{ position: absolute; right: 15px; bottom: 15px; z-index:1111;}
+.slideBox .hd ul li{ width:10px; height:10px;float: left; margin-right: 10px;background:#999;border-radius:25px;cursor: pointer;}
+.slideBox .hd ul li.on{ background:#f00;}
+.slideBox .bd{ position:relative; height:100%; z-index:0;   }
+.slideBox .bd li{ zoom:1; vertical-align:middle; }
+.slideBox .bd img{ width:100%;display:block;  }
+.tempWrap > ul > li{position:relative;padding:15px;} 
+.friendly .tempWrap > ul > li{position:relative;padding:0;}
+.slideBox .play_hd { position: absolute; right: 5%; bottom: 10px; z-index: 20; list-style: none; height: 21px; }
+
+.slideBox .play_hd ul li { width: 14px; height: 14px; padding: 0;float: left; background: url(../../../../images/demoimg/index-focus-btn.png?v=ed0d4a92b4) right bottom no-repeat; margin-right: 7px; font-size: 12px; text-align: center; line-height: 14px; color: #b4abab; cursor: pointer; }
+
+.slideBox .play_hd ul li.on { color: #fb6b5b; background: url(../../../../images/demoimg/index-focus-btn.png?v=ed0d4a92b4) left top no-repeat; }
+
+.slideBox .play_bd .img { height: 100%; max-width: none; width: 100%; padding: 0; }
+
+.slideBox .play_bd .rollinfo { width: 100%; height: 235px; overflow: hidden; vertical-align: top; padding: 0; }
+
+.img_intro{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+}
+.img_intro .img_intro_bg,.img_intro .text{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+.img_intro .img_intro_bg{
+    background: #000;    
+    opacity: 0.4;
+    filter: alpha(opacity=40); 
+    z-index: 999;
+}
+.img_intro .text{
+    padding: 0 10px;
+    z-index: 1000;
+    
+    font-weight: bold;
+}
+.img_intro .text a{color: #fff;}
+/* 下面是前/后按钮代码，如果不需要删除即可 */
+.slideBox .prev,.slideBox .next{
+    position: absolute;
+    width: 42px;
+    height: 72px;    
+    top: 90px;  }
+.slideBox .prev{
+    left: 0;
+    background: url(../../../../images/toLeft.png) no-repeat;
+}
+.slideBox .next{
+    right: 0;
+    background: url(../../../../images/toRight.png) no-repeat;
+}
+.slideBox .prevStop{ display:none;  }
+.slideBox .nextStop{ display:none;  }
+#Projector{
+    position: relative;
+    z-index: 1;
+}
+.play-list > table.cyc-l tr > td { width: 50%; text-align: center; }
+
+.play-list > table.cyc-l tr > td + td { width: 50%; }
+
+.play-list { height: 260px; overflow: hidden; position: relative; margin-bottom: 0; }
+
+.play-list > ul { width: 3000px; font-size: 0; position: relative; }
+
+.play-list > table.cyc-l { position: relative; float: left; width: 100%; }
+
+.play-img { float: left; width: 50%; height: 235px; overflow: hidden; vertical-align: top; padding: 0; }
+
+.play-img img { height: 100%; max-width: none; width: 100%; }
+
+.play-con { width: 50%; float: left; padding: 10px 15px 0; height: 235px; overflow: hidden; position: relative; }
+
+.play-con h2 { line-height: 1.5; font-size: 20px; color: #585858; font-weight: normal; }
+
+.play-con h2 { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: #43a0f2; background: #fff !important;}
+
+.play-con .play-con-a { position: absolute; bottom: 5px; right: 10px; }
+
+.play-con p { color: #999999; font-size: 14px; text-indent: 2em; line-height: 1.5; margin-top: 10px; overflow: hidden; text-align: left; }
+
+.Projector .play_hd { position: absolute; right: 55%; bottom: 10px; z-index: 20; list-style: none; height: 21px; }
+
+.Projector .play_hd ul li { width: 14px; height: 14px;padding: 0; float: left; background: url(../../../../images/demoimg/index-focus-btn.png?v=ed0d4a92b4) right bottom no-repeat; margin-right: 7px; font-size: 12px; text-align: center; line-height: 14px; color: #b4abab; cursor: pointer; }
+
+.Projector .play_hd ul li.on { color: #fb6b5b; background: url(../../../../images/demoimg/index-focus-btn.png?v=ed0d4a92b4) left top no-repeat; }
+
+.img_list{overflow: hidden; position: relative; height: 313px;}
+/* 根据图片的张数来设定ul的宽度 */
+.img_list ul{ width: 3500px; position: absolute; height: 313px; left: 0px;}
+.img_list li{ float: left; height: 313px;}
+.img_list li img{width: 100%;}
+
+/* 图片对应的按钮样式 */
+.btn_list ul{ position: absolute; right: 15px; bottom: 15px; z-index:1111;}
+.btn_list li{ width:10px; height:10px;float: left; margin-right: 10px;background:#999;border-radius:25px;}
+.btn_list li:hover,.btn_list li.on{ cursor: pointer;background:#f00;}
+
+/* 图片对应的说明*/
+.img_intro{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+}
+.img_intro .img_intro_bg,.img_intro .text{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+}
+.img_intro .img_intro_bg{
+    background: #000;    
+    opacity: 0.4;
+    filter: alpha(opacity=40); 
+    z-index: 999;
+}
+.img_intro .text{
+    padding: 0 10px;
+    z-index: 1000;
+    
+    font-weight: bold;
+}
+.img_intro .text a{color: #fff;}

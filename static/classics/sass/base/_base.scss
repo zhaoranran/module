@@ -1,0 +1,205 @@
+/*!
+ * 全局基础框架样式
+ *
+ * base/_base.scss
+ */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; 
+}
+
+::-webkit-scrollbar{width:7px;height:7px;}
+::-webkit-scrollbar-thumb{background-color:rgba(50,50,50,0.3);}
+::-webkit-scrollbar-thumb:hover{background-color:rgba(50,50,50,0.6);}
+::-webkit-scrollbar-track{background-color:rgba(50,50,50,0.1);}
+::-webkit-scrollbar-track:hover{background-color:rgba(50,50,50,0.2);}
+
+.scrollable{
+	-webkit-overflow-scrolling:touch;
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+.jcGOA ,.jcGOA body{
+	width: 100%; 
+	height: 100%; 
+	overflow: hidden;
+}
+
+.jcGOA{
+	.jcGOA-wrap{
+		& > section ,&> footer{
+			position: absolute;
+		}
+	}
+
+	.jcGOA-con { height: 100%; }
+
+	.jcGOA-section { 
+		height: 100%; 
+		position: relative; 
+	}
+
+	
+}
+
+.jcGOA-con { 
+	display: table; 
+	table-layout: fixed; 
+	border-spacing: 0; 
+	width: 100%; 
+	& > aside { 
+		border-right: 1px solid #dfdfdf;
+	}
+	& > aside ,& > section{
+		display: table-cell; 
+		vertical-align: top; 
+		height: 100%; 
+		padding: 0; 
+		float: none;
+		&.show ,.hidden-sm{
+			display: table-cell !important;
+		}
+	}
+}
+
+.jcGOA-wrap { 
+	border-spacing: 0; 
+	position: relative; 
+	height: 100%; 
+	width: 100%;
+	& > section { 
+		top: 0; 
+		bottom: 0; 
+		width: 100%; 
+	}
+	& > header ~ section { 
+		top: $nav-top ;
+	}
+
+	&.jcGOA-menu > header ~ section { 
+		top: 40px; 
+	}
+}
+
+/* table 公共 */
+table{
+	max-width:100%;
+	background-color:transparent;
+	border-collapse:collapse;
+	border-spacing:0
+}
+.table{
+	width:100%;
+	margin-bottom:20px;
+	border-left:0;
+	border: 1px solid #ededed;
+	table-layout: fixed;
+	th,td{
+		padding:8px;
+		line-height:20px;
+		text-align:left;
+		vertical-align:top;
+		border-left: 1px solid #ededed;
+		border-top:1px solid #ededed;
+	}
+
+	th{
+		font-weight:bold
+	}
+	td{
+		vertical-align:middle
+	}
+	caption+thead tr:first-child{
+		th,td{
+			border-top:0
+		}
+	}
+	colgroup+thead tr:first-child{
+		th,td{
+			border-top:0
+		}
+	}
+	thead:first-child tr:first-child{
+		th,td{
+			border-top:0
+		}
+	}
+	caption+tbody tr:first-child{
+		th,td{
+			border-top:0
+		}
+	}
+	colgroup+tbody tr:first-child{
+		th,td{
+			border-top:0
+		}
+	}
+	tbody:first-child tr:first-child{
+		th,td{
+			border-top:0
+		}
+	}
+	tbody+tbody{
+		border-top:2px solid #ddd
+	}
+	.table{
+		background-color:#fff
+	}
+	th,td{
+		font-size:$global-font-size;
+	}
+	&.table-td-striped{
+		table-layout: fixed;
+		border-left: 0;
+		background-color: transparent;
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+}
+.panel.plan-box .table{
+	width:100%;
+	margin-bottom:0;
+	border:0;
+}
+
+.table-striped tbody>tr{
+	&:nth-child(odd)>td,&:nth-child(odd)>th{
+		background-color:#fff
+	}
+	&>td>p,&>td>p>a{
+		word-break:break-all;
+	}
+}
+
+table td[class*="span"],
+table th[class*="span"],
+.row-fluid table td[class*="span"],
+.row-fluid table th[class*="span"]{
+	display:table-cell;
+	float:none;margin-left:0
+}
+
+.auth-staff tbody>tr>td{
+	table-layout: fixed;
+	word-break:break-all;
+}
+
+::-webkit-scrollbar{
+	width:7px;
+	height:7px;
+}
+::-webkit-scrollbar-thumb{
+	background-color:rgba(50,50,50,0.3);
+	&:hover{
+		background-color:rgba(50,50,50,0.6);
+	}
+}
+
+::-webkit-scrollbar-track{
+	background-color:rgba(50,50,50,0.1);
+	&:hover{
+		background-color:rgba(50,50,50,0.2);
+	}
+}

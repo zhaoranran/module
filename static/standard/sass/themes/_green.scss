@@ -1,0 +1,21 @@
+﻿//按钮圆角的大小
+$global-btn-radius-size 		: 4px;
+//左菜单鼠标划过时背景各种颜色 是否启用
+$global-nav-grid-is-show		: false;
+
+//a标签默认颜色
+$global-a-color    				: #0063a6;
+
+//字体颜色
+$global-font-color				: #333;
+
+//list列表中按钮
+$list-btn-new-color				: #669acc;
+
+//nav 左菜单  					
+$global-nav-bg-color			: #099;
+
+//导航颜色
+$global-header-color			: $global-nav-bg-color;
+
+@import "../jcap";

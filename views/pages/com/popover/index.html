@@ -1,0 +1,140 @@
+<%- include('../../../layout/'+styles+'/header.html') %>
+<section class="scrollable padder jcGOA-section" id="scrollable">
+    <header class="crumbs-container pull-in" id="navigationMenu"></header>
+    <section class="panel m-t-md search-box clearfix">
+        <div class="content">
+            <h2 class="panel-heading clearfix">pages/com/popover/index.html</h2>
+            <form id="testForm" class="table-wrap">
+                <table class="table table-td-striped" id="testTable">
+                    <tr>
+                        <td class="form-lable" style="width: 15%">顶部的 Popover</td>
+                        <td style="width: 35%;">
+                            <button type="button" class="btn btn-primary" title="Popover title" data-container="body" data-toggle="popover"
+                                data-placement="top" data-content="顶部的 Popover 中的一些内容">
+                                顶部的 Popover
+                            </button>
+                        </td>
+                        <td class="form-lable" style="width: 15%">底部的 Popover</td>
+                        <td style="width: 35%;">
+                            <button type="button" class="btn btn-success" title="Popover title" data-container="body" data-toggle="popover"
+                                data-placement="bottom" data-content="底部的 Popover 中的一些内容">
+                                底部的 Popover
+                            </button>
+                        </td>
+
+
+                    </tr>
+                    <tr>
+                        <td class="form-lable"> 左侧的 Popover</td>
+                        <td>
+                            <button type="button" class="btn btn-default" title="Popover title" data-container="body" data-toggle="popover"
+                                data-placement="left" data-content="左侧的 Popover 中的一些内容">
+                                左侧的 Popover
+                            </button>
+                        </td>
+                        <td class="form-lable">右侧的 Popover</td>
+                        <td>
+                            <button type="button" class="btn btn-warning" title="Popover title" data-container="body" data-toggle="popover"
+                                data-placement="right" data-content="右侧的 Popover 中的一些内容">
+                                右侧的 Popover
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="form-lable"> 顶部的 Popover 中的 hide 方法</td>
+                        <td>
+                            <button type="button" class="btn btn-primary popover-hide" title="Popover title" data-container="body"
+                                data-toggle="popover" data-placement="top" data-content="顶部的 Popover 中的一些内容 —— hide 方法">
+                                顶部的 Popover
+                            </button>
+                        </td>
+                        <td class="form-lable">底部的 Popover 中的 destroy 方法</td>
+                        <td>
+                            <button type="button" class="btn btn-success popover-destroy" title="Popover title" data-container="body"
+                                data-toggle="popover" data-placement="bottom" data-content="底部的 Popover 中的一些内容 —— destroy 方法">
+                                底部的 Popover
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="form-lable">右侧的 Popover 中的 toggle 方法</td>
+                        <td>
+                            <button type="button" class="btn btn-warning popover-toggle" title="Popover title" data-container="body"
+                                data-toggle="popover" data-placement="right" data-content="右侧的 Popover 中的一些内容 —— toggle 方法">
+                                右侧的 Popover
+                            </button>
+                        </td>
+                        <td class="form-lable">左侧的 Popover 中的show 方法</td>
+                        <td>
+                            <button type="button" class="btn btn-default " title="Popover title" data-container="body" data-toggle="popover"
+                                data-placement="left" data-content="左侧的 Popover 中的一些内容 —— show 方法">
+                                左侧的 Popover
+                            </button>
+                        </td>
+                    </tr>
+                    <tr style="width:100%;padding:20px 0">
+                        <td class="form-lable">options 方法</td>
+                        <td>
+                            <p class="popover-options">
+                                <a href="#" type="button" class="btn btn-warning" title="<h2>Title</h2>" data-container="body" data-toggle="popover" data-content="
+                <h4>Popover 中的一些内容 —— options 方法</h4>">
+                                    Popover
+                                </a>
+                            </p>
+                        </td>
+                        <td class="form-lable">弹出框（Popover）插件的 show方法</td>
+                        <td>
+                            <button type="button" class="btn btn-primary popover-show" title="Popover title" data-container="body"
+                                data-toggle="popover" data-content="左侧的 Popover 中的一些内容 —— show 方法">
+                                左侧的 Popover
+                            </button>
+                        </td>
+
+                    </tr>
+                    <tr style="width:100%;padding:20px 0">
+                        <td class="form-lable">弹出框（Popover）插件的事件</td>
+                        <td>
+                            <button type="button" class="btn btn-primary popover-show" title="Popover title" data-container="body"
+                                data-toggle="popover" data-content="左侧的 Popover 中的一些内容 —— show 方法">
+                                左侧的 Popover
+                            </button>
+                        </td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </section>
+</section>
+<script>
+    $(function () {
+        $("[data-toggle='popover']").popover();
+
+        //弹出框（Popover）插件的方法
+
+        $('.popover-show').popover('show');
+
+
+        $('.popover-hide').popover('hide');
+
+
+        $('.popover-destroy').popover('destroy');
+
+
+        $('.popover-toggle').popover('toggle');
+
+
+        $(".popover-options a").popover({ html: true });
+    });
+    //弹出框（Popover）插件的事件
+    $(function () {
+        $('.popover-show').popover('show');
+    });
+    $(function () {
+        $('.popover-show').on('shown.bs.popover', function () {
+            alert("当显示时警告消息");
+        })
+    });
+</script>
+<%- include('../../../layout/'+styles+'/footer.html') %>

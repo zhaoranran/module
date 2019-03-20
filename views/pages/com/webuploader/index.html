@@ -1,0 +1,94 @@
+<%- include('../../../layout/'+styles+'/header.html') %>
+
+<link rel="stylesheet" type="text/css" href="<%= rootPath%>public/node_modules/jc-webuploader/webuploader.css">
+
+
+<script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-webuploader/webuploader.js"></script>
+<script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-webuploader/jc.webuploader.js"></script>
+
+
+
+<section class="scrollable padder jcGOA-section" id="scrollable">
+  <!-- 面包屑位置 -->
+  <header class="crumbs-container pull-in" id="navigationMenu"></header>
+  <section class="panel m-t-md clearfix">
+      <div class="content">
+          <h2 class="panel-heading clearfix">pages/com/webuploader/index.html</h2>
+          <form id="testForm" class="table-wrap form-table">
+              <table class="table table-td-striped" id="testTable">
+                  <tr>
+                      <td style="width:10%" class="form-lable">上传1</td>
+                      <td style="width:40%">
+                        <a href="javascript:showU();"  class="btn">上传</a>
+                        <a href="javascript:reset();" class="btn">重置第一个队列</a>
+                        <a href="javascript:getData();" class="btn">获取已上传附件</a>
+                      </td>
+                      <td style="width:10%" class="form-lable">上传2</td>
+                      <td style="width:40%">
+                        <a href="#myModal" data-toggle="modal" class="btn">弹层中上传</a>
+                      </td>
+                  </tr>
+              </table>
+          </form>
+        </div>
+  </section>
+</section>
+
+ 
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <button id="uploader2">上传</button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  var uploader,uploader2,index = 1;
+  $(document).ready(function(){
+    uploader = new JC.Webuplaoder({
+        grade: '123',
+        uploadInitLabel:"123",
+        accept: {
+         	title: '指定格式',
+        	extensions: 'gif,jpg,jpeg,bmp,png',
+        	mimeTypes: 'image/gif,image/jpg,image/jpeg,image/bmp,image/png'
+        }
+    });
+
+    uploader2 = new JC.Webuplaoder();
+
+    $('#uploader2').on('click', function(e){
+      uploader2.show();
+    });
+  });
+
+  function showU(){
+    uploader.option.grade = '123'+index;
+    uploader.show();
+    index++;
+  }
+
+  function reset(){
+    uploader.reset();
+  }
+
+  function getData(){
+      console.log(uploader.getFiles());
+  }
+</script>
+
+<%- include('../../../layout/'+styles+'/footer.html') %>

@@ -1,0 +1,28 @@
+<%- include('../../../layout/'+styles+'/header.html') %>
+<div id="form" class="form">
+    <h3>请登录</h3>
+    <div class="userInfo">
+        <input type="text" id="username" name="username" placeholder="用户名" class="placeholder">
+        <label for="username">
+            <i class="iconfont icon-user"></i>
+        </label>
+    </div>
+    <div class="userInfo">
+        <input type="text" placeholder="密 码" class="placeholder" id="password" style="display: inline-block;">
+       <!-- <input type="password" name="password" placeholder="密 码" style="display: none;">-->
+        <label for="password">
+            <i class="iconfont icon-kaisuo"></i>
+        </label>
+    </div>
+    <div id="errormsg" class="error" style="display: none;"></div>
+</div>
+<script type="text/javascript" src="<%= rootPath%>/js/lib/jc.lib.js"></script>
+<script>
+    $(document).ready(function(){
+        $('input[placeholder]').placeholder();
+
+    });
+</script>
+
+
+<%- include('../../../layout/'+styles+'/footer.html') %>

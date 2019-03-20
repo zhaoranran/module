@@ -1,0 +1,104 @@
+﻿/*!
+ * Path : components/_system_component.scss
+ * 	系统组件样式
+ *		数据字典、返回顶部、附言、信息提示、常用词、通讯录、查询条件
+ * Copyright 2016 JiaCheng GeZhiGang
+ */
+
+/*数据字典*/
+.dictionary-nav>li>a{line-height:20px;}
+.dictionary-nav>li>a>i{color:#555;margin-right: 5px;vertical-align:middle;margin-top: -1px;}
+.dictionary-nav li ul{margin-left:20px;}
+.dictionary-nav a.active{background:#b9ecff;color:#0063a4;}
+/*附言*/
+.postscript_parents{padding-right: 34px;}
+.postscript_box{
+	width: 35px;
+	height:600px;
+	border: 1px solid #ccc;
+	background: #fff;
+	position: fixed;
+	right: 0;
+	bottom:0;
+	z-index: 777;
+	&.sq .ps-btn{
+	  display: block;
+	}
+}
+/*#postscriptDiv{overflow-y:scroll}*/
+.postscript_box .postscript{
+	width:35px;
+	height:100%;
+	border: 1px solid #ccc;
+	border-left:0 none;
+	background: #fff;
+	text-align: center;
+	position: absolute;
+	left:0;
+	top: -1px;
+	bottom: -1px;
+	cursor: pointer;
+}
+.postscript_box .dialogWrap{padding: 60px 0 15px 0;height: 100%;}
+.postscript_box .dialogWrap .dialog-text{word-break:break-all;word-wrap:break-word;}
+.postscript_box .dialog{margin-left: 50px;overflow-y: auto;padding-right: 2px; height: 87.9544684561654%;}
+.postscript_box .dialog>ul>li{background:#f6f6f6;border:1px solid #ebebeb;padding:10px;width:100%;}
+.postscript_box .dialog>ul>li:last-child{margin-bottom: 0;}
+.postscript span{font-size: $global-font-size;width: 17px;display: block;/*margin: 0 auto;*/margin-left:10px;}
+.postscript i{display: block;color: #fb6b5b;margin: 0 auto;line-height: 35px;}
+.ps_top{position: absolute;top: 0;right: 4px;z-index: 1005;width: 500px;background: #fff;padding: 15px 0 ;}
+.ps-btn{display: none;background: #8ec165;border: 1px solid #709851;}
+.ps-btn:hover{background: #80ad5b;border: 1px solid #658949;}
+/*信息提示*/
+.messageTip{width: 380px;z-index:100;min-height: 40px;border: 1px solid #60aae9;position: fixed;bottom: 0;right: 0;background: #fff;}
+.messageTip .badge{padding: 4px 11px;font-size: $global-font-size;font-weight: normal;}
+.messageHeader{width: 100%;background: #60aae9;padding-left: 11px;}
+.listWrap{text-align: left;}
+.messageTip h4{line-height: 40px;margin: 0;font-size: $global-font-size + 4;color: #fff;font-weight: normal;}
+.messageTip .close{background: transparent;}
+.messageList > li{padding: 10px 8px 10px 10px;border-bottom: 1px solid #dfdfdf;text-align: right;padding-right: 8px;}
+.messageList > li span{font-size: 12px;color: #999;display: inline-block;line-height: 12px;}
+.messageList > li a{padding-left: 10px;}
+.messageList > li p{color: #999;display: block;width:247px;margin: 0;padding-left: 10px;}
+.message-btm{height:34px;line-height:34px;background:#f8f8f8;}
+.message-btm a{color:#0063a6;padding:0 6px;}
+.messageList .listWrap{width: 200px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+/*常用词提示框*/
+.g-nav-xs{position:absolute;display:none;background-color: #f3f3f3;border: 2px solid #dfdfdf;z-index: 888;}
+.g-nav-xs .tab-content{background-color:#fff;height:280px;overflow:hidden;position:relative;}
+.g-nav-xs .table-flow{height:240px;overflow:hidden;}
+.g-nav-xs .table-flow div.table{height:240px;}
+.g-nav-xs .table-flow .table{overflow:auto;}
+.g-nav-xs div.table{border:0;margin:0;height:280px;overflow: auto;}
+.g-nav-block{display:block;}
+.g-nav-xs .table td{width:510px;border: 0;border-bottom:1px solid #f7f7f7;border-left:1px solid #f7f7f7;text-align:center;line-height:25px;}
+.g-nav-xs .table td:hover{background-color: #fdfcfb;}
+.g-nav-xs .tabs-wrap{padding: 10px;}
+.g-nav-xs .tabs-wrap .nav-tabs>li a{width:80px;margin-left: 0;}
+.g-nav-xs .g-nav-footer{position:absolute;bottom: 0;width:100%;padding-top:10px;background-color: #f3f3f3;}
+.g-nav-xs .tab-content .g-nav-footer input{width:300px;}
+.g-nav-xs .tab-content .g-nav-footer .fr{position: absolute;bottom:0;right:0;}
+/*查询条件隐藏显示*/
+.panel.search-shrinkage{border:0;-webkit-box-shadow:0px 0px;}
+.search-shrinkage{margin-bottom:0 !important;}
+.panel.search-shrinkage .search-line{background-color: #fff;}
+.search-footer-block{border-top:5px solid lighten($global-btn-drak ,10%);background-color:#eceff4;}
+.search-footer-btn{width: 150px;height: 25px;background-color: lighten($global-btn-drak ,10%);line-height: 25px;text-align: center;color:#fff;margin:0 auto;}
+.search-footer-btn a{display:block;outline: none;}
+.search-footer-btn span{position: relative;left: -6px;}
+
+/*通讯录*/
+.address{padding:0 !important;}
+.address-head li{text-align: left;font-weight: bold;background-color: #f9f8f5;padding-left: 10px !important;}
+.address-list{display:table; width:100%;}
+.address-list li{display: table-cell;width:20%;height: 37px;padding:3px;vertical-align:middle;border-right:1px solid #ccc;border-bottom:1px solid #ccc;word-break: break-all;overflow: hidden;text-overflow: ellipsis;}
+.address-list li+li{width:25%;}
+.address-list li+li+li{width:15%;}
+.address-list li+li+li+li{width:40%;border-right:0;}
+
+/*左菜单快捷导航*/
+.nav-xs .sidebar-search .shortcut-link{display:none;}
+.sidebar-search .shortcut-link a{width:30px;height:30px;border:1px solid #eee; color:#555;text-align:center;line-height:30px;float:right;margin-right:5px;}
+.sidebar-search .shortcut-link a:hover{border:1px solid #99ccff;}
+.sidebar-search .shortcut-link a i{width:20px;height:20px;}
+

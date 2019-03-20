@@ -1,0 +1,241 @@
+<%- include('../../../layout/'+styles+'/header.html') %>
+
+<!-- 人员选择树 -->
+<link rel="stylesheet" type="text/css" href="<%= rootPath%>public/node_modules/jc-tree/css/jctree.min.css">
+<link rel="stylesheet" type="text/css" href="<%= rootPath%>public/css/validate/JQ.validate.css">
+<script>
+    function getRootPath(){
+        return '/server';
+    }
+</script>
+<!-- 时间插件 -->
+<section class="scrollable padder jcGOA-section" id="scrollable">
+    <header class="crumbs-container pull-in" id="navigationMenu"></header>
+    <section class="panel m-t-md search-box clearfix">
+        <h2 class="panel-heading clearfix">com/page/validate/validate.html</h2>
+        <div class="content">
+                <form id="testForm" class="table-wrap form-table">
+                    <table class="table table-td-striped" id="testTable">
+                        <tr>
+                            <td style="width:15%" class="form-lable">姓名(验证为空)</td>
+                            <td style="width:35%"><input type="text" name="name" class="text"></td>
+                            <td style="width:15%" class="form-lable">性别(验证为空)</td>
+                            <td style="width:35%"><input type="text" name="sex" class="text"></td>
+                        </tr>
+                        <tr>
+                            <td class="form-lable">年龄(验证数字，数值)</td>
+                            <td><input type="text" name="age" class="text"></td>
+                            <td class="form-lable">婚姻情况(验证为空)</td>
+                            <td>
+                                <select name="marriage">
+                                    <option value selected>--请选择--</option>
+                                    <option value="1">已婚</option>
+                                    <option value="2">未婚</option>
+                                    <option value="3">未知的性别</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-lable">时间(验证为空，日期有效性)</td>
+                            <td><input type="text"  class="datepicker-input" name="searchtime" readonly ></td>
+                            <td class="form-lable">人员选择树</td>
+                            <td>
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-lable">家庭成员(验证多选)</td>
+                            <td>
+                                <label for="father" class="checkbox inline">
+                                    <input type="checkbox"  name="family" value="0" id="father">父亲
+                                </label>
+                                <label for="mother" class="checkbox inline">
+                                    <input type="checkbox"name="family" value="1" id="mother">母亲
+                                </label>
+                            </td>
+                            <td class="form-lable">政治身份(验证单选)</td>
+                            <td>
+                                <label for="polity1" class="radio inline">
+                                    <input type="radio" id="polity1" name="polity" value="0">团员
+                                </label>
+                                <label for="polity2" class="radio inline">
+                                    <input type="radio" id="polity2" name="polity" value="1">党员
+                                </label>
+                                <label for="polity3" class="radio inline">
+                                    <input type="radio" id="polity3" name="polity" value="2">其他
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-lable">星期(验证字母数字，自定义规则)</td>
+                            <td><input type="text" name="week" class="text" /></td>
+                            <td class="form-lable">邮件(验证格式)</td>
+                            <td><input type="text" name="email" class="text" /></td>
+                        </tr>
+                        <tr>
+                            <td class="form-lable">不能输入特殊字符</td>
+                            <td><input type="text" name="spicl" class="text" /></td>
+                            <td class="form-lable"></td>
+                            <td><input type="text" name="email" class="text" /></td>
+                        </tr>
+                        <tr id="addNext">
+                            <td data-table="rowspan" rowspan="1" class="form-lable">家庭成员</td>
+                            <td>姓名</td>
+                            <td>与本人关系</td>
+                            <td>
+                                <div class="dis-table">
+                                    <div class="dis-table-cell" style="vertical-align: middle;">工作单位</div>
+                                    <div class="dis-table-cell" style="text-align: right;">
+                                        <a href="javascript:void(0);"  name="tmpl1" class="btn btn-primary" data-table="dynrow">添加</a>
+                                        <a href="javascript:void(0);" name="tmpl1" class="btn btn-primary" onclick="deleteLine();">删除一行</a>
+                                    </div>
+                                </div>
+                            </td> 
+                        </tr>
+                    </table>
+                    
+                </form>
+                    <section class="form-btn m-b-lg" style="margin:20px 15px;">
+                        <button id="formSubmit" class="btn dark query-jump" type="button" onclick="submit()">提交表单</button>
+                    </section>
+            </div>
+    </section>
+</section>
+<!-- 人员选择树 -->
+<script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-layer/jc.layer.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/ChinesePY.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/jquery.ztree.all-3.5.min.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/select2.all.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/jctree.js"></script>
+<script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-dynrow/jc.dynrow.js"></script>
+<script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-validate/jc.validate.js"></script>
+<script type="text/javascript">
+            $('.datepicker-input').datepicker();
+            var indexId = 0,
+                tplRow;
+                var jctreeObjs = [];
+            $(document).ready(function() {
+                var person1 = new JC.Tree.Person({
+                    container: 'jctreeUser',//容器id
+                    controlId: 'jctree',//插件生成的表单元素id / -后是name
+                    single: true,//false = 多选 | true = 单选
+                });
+                //添加class验证规则  一般用于动态添加行上
+                $.validator.addClassRules({
+                    familyname: {
+                        required: true,
+                    },
+                    familycontent: {
+                        required: true,
+                        maxlength: 5,
+                        minlength: 2
+                    },
+                    name:{
+                        valiJctree: 'jctree'
+                    }
+                });
+                //添加验证规则“medium”
+               $.validator.addMethod("medium", function(value, element) {
+                    return this.optional(element) || /^[0-9]{0,8}$/.test(value);
+                }, $.i18n.prop("1-8位，允许字母数字"));
+                $("#testForm").validate({
+                    ignore: ".ignore",
+                    rules: {
+                        name: {
+                            required: true
+                        },
+                        sex: {
+                            required: true
+                        },
+                        age: {
+                            number: true,
+                            range: [0, 50],//长度区间
+                        },
+                        searchtime: {
+                            required: true,
+                            dateISO: true//日期有效性
+                        },
+                        jctree: {
+                            valiJctree: 'jctreeUser'
+                        },
+                        spicl: {
+                            isNotChinese:true
+                        },
+                        family: {
+                            required: true
+                        },
+                        polity: {
+                            required: true
+                        },
+                        marriage: {
+                            required: true
+                        },
+                        week: {
+                            medium: true//自定义规则
+                        },
+                        email: {
+                            email: true
+                        }
+                    },
+                    //单选多选控制error显示位置
+                    errorPlacement: function(error, element) {
+                        var name = element.attr('name');
+                        if (name == 'family' || name == 'polity') {
+                            element.closest('td').append(error);
+                        } else {
+                            error.insertAfter(element);
+                        }
+                    }
+                });
+                tplRow = new JC.Dynrow('testTable', {
+                    tmplId: 'tableTmpl',
+                    addNextId: 'addNext',
+                    deleteLast: false,
+                    fnAdd:function(trDom){
+                        (function(index){
+                        jctreeObjs[index] = new JC.Tree.Person({
+                                container: 'jctree' + index,
+                                controlId: 'name_'+index,
+                                single: true,
+                                callback: function(){
+                                    var $tr = jctreeObjs[index].$controlDivId;
+                                    console.log($tr.closest('tr').data('dyx'));
+                                }
+                            });
+                        })(indexId);//调用时参数
+                        indexId++;
+                    }
+                    // fnDel: function(len) {
+                    //     if (len == 1) {
+                    //         // msgBox.tip({
+                    //         //     type: 'fail',
+                    //         //     content: '就剩下一行了,就不能再删除了'
+                    //         // });
+                    //     }
+                    // }
+                });
+            });
+
+            function submit() {
+                $("#testForm").valid();
+                return false;
+            }
+            
+            function deleteLine() {
+                tplRow.deleteRow();
+            }
+           
+</script>
+<script id="tableTmpl" type="text/html">
+    <tr>
+        <td><input type="text" name="data[{{ indexId}}].familyName" class="familyname"/></td>
+        <td><input type="text" name="data[{{ indexId}}].familyContent" class="familycontent" /></td>
+        
+        <td><div id="jctree{{indexId}}" class="jctree"></div></td>
+    </tr>
+</script>
+
+
+
+
+<%- include('../../../layout/'+styles+'/footer.html') %>

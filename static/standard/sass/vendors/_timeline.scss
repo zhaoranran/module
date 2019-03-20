@@ -1,0 +1,63 @@
+﻿/*!
+ * Path : vendors/_timeline.scss
+ *  时间轴样式
+ *    
+ * Copyright 2016 JiaCheng GeZhiGang
+*/
+ul.timeline {
+    list-style-type: none;
+    background: url("../../../../images/timeLine/icon1.png") repeat-y scroll 223px 0;
+    margin: 50px 0;
+    padding: 0;
+    li {
+        position: relative;
+        margin-bottom: 20px;
+        .timeyear {
+            position: absolute;
+            width: 190px;
+            text-align: right;
+            left: 0;
+            top: 10px;
+            color: #999;
+        }
+        .timeversion {
+            position: absolute;
+            width: 290px;
+            text-align: right;
+            left: -100px;
+            top: 30px;
+            font-size: 40px;
+            line-height: 50px;
+            color: #3594cb;
+            overflow: hidden;
+        }
+        .timenumber {
+            position: absolute;
+            background: url("../../../../images/timeLine/icon2.png") no-repeat scroll 0 0;
+            width: 56px;
+            height: 56px;
+            left: 200px;
+            line-height: 56px;
+            text-align: center;
+            color: #fff;
+            font-size: 18px;
+        }
+        &.alt .timenumber {
+            background-image: url("../../../../images/timeLine/icon3.png");
+        }
+        .timecontent {
+            margin-left: 280px;
+            margin-right: 50px;
+            pre {
+                background-color: #3594cb;
+                padding: 20px;
+                color: #fff;
+                font-size: 13px;
+                line-height: 20px;
+            }
+        } 
+        &.timealt .timecontent pre {
+            background-color: #43B1F1;
+        }
+    }
+}

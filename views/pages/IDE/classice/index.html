@@ -1,0 +1,95 @@
+<% include ../../../layout/classics/header.html %>
+<style>
+    .jc-tree{
+        height:100%;
+        border:1px solid #ccc;
+    }
+    .jc-tree-a{
+        display:inline-block;
+        width:30px;
+        height:30px;
+        text-align: center;
+        background-color:#009966 !important;
+        color:#fff;
+    }
+    .jc-tree-a:hover,
+    .jc-tree-a:focus{
+        background-color:#008055 !important;
+        color:#fff;
+    }
+    .jc-tree-a i.fa-user22,
+    .jc-tree-a i.fa-users,
+    .jc-tree-a i.fa-group2
+    {
+        padding-top:7px;
+    }
+    .jc-tree .fa-sort-down{
+        margin:5px 5px 0px 0px;
+        color:#aaa;
+    }
+
+</style>
+<section class="scrollable padder jcGOA-section" id="scrollable">
+    <!-- 面包屑位置 -->
+    <header class="crumbs-container pull-in" id="navigationMenu"></header>
+    <section class="panel m-t-md clearfix">
+        <div class="content">
+            <h2 class="panel-heading clearfix">pages/com/IDE/index.html</h2>
+            <form class="table-wrap form-table" id="userListForm">
+                <table class="table table-td-striped">
+                    <tbody>
+                        <tr>
+                            <td class="form-lable" style="width:15%">人员(单选)</td>
+                            <td style="width:35%"> 
+                                <div class="jc-tree" id="jctreeUser1">
+                                    <a class="fr jc-tree-a" href="###"><i class="fa fa-user22"></i></a>
+                                    <i class="fa fa-sort-down fr"></i>
+                                </div>
+                            </td>
+                            <td class="form-lable" style="width:15%">人员(多选)</td>
+                            <td style="width:35%">
+                                <div class="jc-tree" id="jctreeUser2">
+                                    <a class="fr jc-tree-a" href="###"><i class="fa fa-users"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="form-lable">机构(单选)</td>
+                            <td> 
+                                <div id="jctreeOrg1"></div>
+                                <div class="jc-tree" id="jctreeOrg1">
+                                    <a class="fr jc-tree-a" href="###"><i class="fa fa-group2"></i></a>
+                                    <i class="fa fa-sort-down fr"></i>
+                                </div>
+                            </td>
+                            <td class="form-lable"></td>
+                            <td><div id="jctreeOrg2"></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="jctree-style">
+                    <h2 class="panel-heading clearfix">权限树</h2>
+                    <div id="controlZtree">
+                        <img src="../images/ztree.png" alt="">
+                    </div>
+                    <a class="btn">添加一个节点</a>
+                    <a class="btn">删除选中节点</a>
+                    <a class="btn">获取所有选中节点的id</a>
+                </div>
+            </form>
+            <div>  
+                <h2 class="panel-heading clearfix">echarts组件视图</h2>
+                <img src="../images/echarts.png" alt="">
+            </div>
+            <iframe id="frameT" name="frameT"
+                    style="overflow:visible;"
+                    scrolling="yes"
+                    frameborder="no">
+            </iframe>
+        </div>
+    </section>
+</section>
+<script>
+$("#frameT")
+</script>
+<% include ../../../layout/classics/footer.html %>

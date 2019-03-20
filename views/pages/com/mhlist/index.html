@@ -1,0 +1,237 @@
+<%- include('../../../layout/'+styles+'/header.html') %>
+<style>
+.play-list{
+	width:810px;
+	height:260px;
+}
+.play-list img{
+	width:460px;
+	height:260px;
+}
+</style>
+<div id="slideBoxinfo41747" class="slideBox play-list m-l-lg">
+	<div class="play_bd" id="info41747">
+		<div class="tempWrap">
+			<ul>
+				<li>
+					<div class="play-list panel">
+						<table class="cyc-l">
+							<tr>
+								<td class="play-img"><img src="<%= rootPath%>public/images/glory-img1.jpg" /></td>
+								<td class="play-con">
+									<h2><a href="javascript:void(0)">重庆“两会1” 工作人员拉线整齐排列座位牌</a></h2>
+									<p>	1月21日，重庆“两会”工作人员拉线整齐排列领导座位牌。当日，中国人民政治协商会议重庆市第四届委员会第二次会议闭幕。1月21日，重庆“两会”工作人员拉线整齐排列领导座位牌。当日，中国人民政治协商会议重庆市第四届委员会第二次会议闭幕陈超 摄</p>
+								</td>
+							</tr>
+						</table>
+						<div class="cyclyImg_pager com"></div>
+					</div>
+				</li>
+				<li>
+					<div class="play-list panel">
+						<table class="cyc-l">
+							<tr>
+								<td class="play-img"><img src="<%= rootPath%>public/images/glory-img2.jpg" /></td>
+								<td class="play-con">
+									<h2><a href="javascript:void(0)">重庆“两会1” 工作人员拉线整齐排列座位牌</a></h2>
+									<p>	1月21日，重庆“两会”工作人员拉线整齐排列领导座位牌。当日，中国人民政治协商会议重庆市第四届委员会第二次会议闭幕。1月21日，重庆“两会”工作人员拉线整齐排列领导座位牌。当日，中国人民政治协商会议重庆市第四届委员会第二次会议闭幕陈超 摄</p>
+								</td>
+							</tr>
+						</table>
+						<div class="cyclyImg_pager com"></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="play_hd">
+		<ul><li class="on">1</li></ul>
+	</div>
+</div>
+<script src="<%= rootPath%>public/js/lib/jquery.superSlide.js"></script>
+<script>
+	$("#slideBoxinfo41747").slide({
+			titCell:".play_hd ul",
+			mainCell:".play_bd ul",
+			autoPage:true,
+			effect:"left",
+			autoPlay:true,
+			trigger:"click"
+		});
+</script>
+<!-- <script>
+	function gotoSendTodo() {
+	//window.parent.historyUrl.length=0;
+	/*if(typeof(window.parent.loadmenubarurl) != 'undefined' ){
+		window.parent.loadmenubarurl.value = "/workFlow/form/jumpToList.action?url=/doc/send/sendWaitTransact&docFrom=0";
+		if(typeof(window.parent.loadmenubarid) != 'undefined')
+			window.parent.loadmenubarid.value = 0;
+	}*/
+//	alert(arguments[1]);
+//	menuUtil.saveMenuID("/im/info/infoColumnSelect.action",request);
+
+	//openform("/doc/send/loadSend.action?condition=0",arguments[0],arguments[1],'business','todo');
+	//loadrightmenu("doc/send/loadSendFromPortal.action?condition=0&entrance=business&scanType=todo&workId="+arguments[0],'',"/workFlow/processInstance/getTodoListWithDoc.action");
+	var action ="/doc/send/loadSendFromPortal.action?condition=0&entrance=business&scanType=todo&workId="+arguments[0];
+	JC.loadPage({url:action});
+	
+}
+
+function loadsenddata(){
+	jQuery.ajax({
+        url: getRootPath()+"/api/send/getSendPortalData.action?funViewType=pviewType_9&dataRows=4&time="+new Date(),
+        type: 'post',
+        success: function(data, textStatus, xhr) {
+			if($.type(data) === 'string'){
+				data = $.parseJSON(data);
+			}
+        	if('pviewType_9' == 'pviewType_1'){
+        		loadsendmixlist(data.loginlogList,data.dataRows,"send13912","dataLoad_send3912","39");
+        	} else if('pviewType_9' == 'pviewType_9'){
+        		loadsendmaxlist(data.loginlogList,data.dataRows,"send93912","dataLoad_send3912","39");
+        	} else if('pviewType_9' == 'pviewType_7'){
+        		loadsendshortcut(data.loginlogListSize,"send73912","dataLoad_send3912");
+        	} else {
+        		$("#dataLoad_send3912").fadeOut();
+        	} 
+        },error:function(e){
+        	// alert("加载数据错误。");
+        	//msgBox.tip({content: "加载数据错误", type:'fail'});
+        }
+	});
+}
+function loadsendmixlist(infoList,dataRows,divname,loadingname,portletId){
+	if(JC.version3()) $('#fun_'+portletId).removeClass('table-wrap');
+   	if(infoList.length > 0){
+		var result = [];
+		for(var i=0;i<infoList.length;i++){
+			var item = infoList[i];
+			if(i == dataRows) break;
+			result.push("<tr class='"+(i % 2 != 0 ? 'even' : '')+"'>");
+			result.push("<td>");
+			result.push('<a href="javascript:void(0)" title="'+item.title+'" onclick="gotoSendTodo(\''+item.workId+'\',\''+item.piId+'\')";>');
+			result.push("</td>");
+			result.push("<td>"+item.modifyDate+"</td>");
+			result.push("</tr>");
+		}
+   	   	$("#"+divname).html(result.join(''));
+   	} else {
+   		$("#"+divname).html("<tr><td colspan='2' style='text-align:center;font-size: 13px;font-family: inherit;'>暂无数据</td></tr>");
+   	}
+	$("#"+loadingname).fadeOut();
+};
+function loadsendmaxlist(infoList,dataRows,divname,loadingname,portletId){
+	if(JC.version3()) $('#fun_'+portletId).removeClass('table-wrap');
+   	if(infoList.length > 0){
+		var result = [];
+		for(var i=0;i<infoList.length;i++){
+			var item = infoList[i];
+			if(i == dataRows) break;
+			result.push("<li class='"+(i % 2 != 0 ? 'even' : '')+"'>");
+			if(JC.version3()){
+				result.push('<div class="index-inform-con" style="margin-left: 0;">');
+				result.push('<a href="javascript:void(0)" title="'+item.title+'" onclick="gotoSendTodo(\''+item.workId+'\',\''+item.piId+'\')";>');
+				result.push('<span>'+item.title+'</span>');
+				result.push('<font>'+item.modifyDate+'</font>');
+				result.push('</a>');
+				result.push('</div>');
+			}else{
+				result.push("<i class=\"fa fa-clipboard icon fl\"></i><div class=\"index-inform-con\">");
+				/* result.push('<a href="javascript:void(0)" title="'+item.title+'" onclick="gotoSendTodo(\''+item.workId+'\',\''+item.piId+'\')";>');
+				result.push("<span>"+item.title+"</span>");
+				result.push("<div class='index-inform-d'>"+item.modifyDate+"</div></a></div>"); */
+				result.push('<div class="index-inform-con fl" style="margin-left: 0;">');
+				result.push('<a href="javascript:void(0)" title="'+item.title+'" onclick="gotoSendTodo(\''+item.workId+'\',\''+item.piId+'\')";>');
+				result.push('<span>'+item.title+'</span>');
+				result.push('<font>'+item.modifyDate+'</font>');
+				result.push('</a>');
+				result.push('</div>');
+			}
+			result.push("</li>");
+		}
+   	   	$("#"+divname).html("<ul>"+result.join('')+"</ul>");
+   	} else {
+   		$("#"+divname).html("<div style='text-align:center;margin-top: 50px;font-size: 18px;font-family: inherit;'>"+"暂无数据"+"</div>");
+   	}
+	$("#"+loadingname).fadeOut();
+};
+function loadsendshortcut(infoListsize,divname,loadingname){
+	$("#"+divname).html(infoListsize);
+   	$("#"+loadingname).fadeOut();
+}
+function loadinfodata(){
+	jQuery.ajax({
+		url: getRootPath()+"/api/send/getInfoPortalData.action?columnId=&funViewType=pviewType_4&dataRows=5&time="+new Date(),
+		type: 'post',
+		success: function(data, textStatus, xhr) {
+			if($.type(data) === 'string'){
+				data = $.parseJSON(data);
+			}
+			if(data.infoList != null && 'pviewType_4' == 'pviewType_1'){
+				loadinfomixlist(data.infoList,data.dataRows,"info11747","dataLoad_info1747",17);
+			} else if(data.infoList != null && 'pviewType_4' == 'pviewType_9'){
+				loadinfomaxlist(data.infoList,data.dataRows,"info91747","dataLoad_info1747",17);
+			} else if(data.infoPicList != null && 'pviewType_4' == 'pviewType_3'){
+				loadinfotxtview(data.infoPicList,data.dataRows,"info31747","dataLoad_info1747");
+			} else if(data.infoPicList != null && 'pviewType_4' == 'pviewType_4'){
+				loadinforollview(data.infoPicList,data.dataRows,"info41747","dataLoad_info1747");
+			} else if(data.infoAnalysisByColumnList != null){
+				loadinfoview(data.infoAnalysisByColumnList,"info81747","dataLoad_info1747");
+			} else {
+				$("#dataLoad_info1747").fadeOut();
+			}
+		},error:function(e){
+			// alert("加载数据错误。");
+			//msgBox.tip({content: "加载数据错误", type:'fail'});
+		}
+	});
+};
+	/**
+	 *  信息图片 多图
+	 * */
+	 function loadinforollview(infoPicList,dataRows,divname,loadingname){
+		var content = "";
+		debugger
+		if(infoPicList.length > 0){
+			for(var i=0;i<infoPicList.length;i++){
+				if(i == dataRows) break;
+				content = content + "<li><div class=\"rollinfo\"><a href=\"javascript:void(0)\" title=\""+infoPicList[i].infoTitile+"\" onclick=\"validateFailure("+infoPicList[i].id +")\">"+
+						"<img class=\"img\" src=\"./../.."+infoPicList[i].portalPic+"\" /></a><div></li>";
+			}
+			$("#"+divname).html("<ul>"+content+"</ul>");
+			loadJsForRollView(divname);
+		} else {
+			$("#"+divname).html("<div style='text-align:center;margin-top: 50px;font-size: 18px;font-family: inherit;'>"+"暂无数据"+"</div>");
+		}
+		$("#"+loadingname).fadeOut();
+	};
+	/**
+	 *  信息图片 多图 轮播调用
+	 * */
+	 function loadJsForRollView(divname){
+		$("#slideBox"+divname).slide({
+			titCell:".play_hd ul",
+			mainCell:".play_bd ul",
+			autoPage:true,
+			effect:"left",
+			autoPlay:true,
+			trigger:"click"
+		});
+	}
+loadsenddata();
+loadinfodata();
+	</script>
+
+<div class="index-inform panel m-l-lg" id="send93912">
+		<div class="fl panel-con-wrap inform-con"> <strong id="send7${portletId }${functionId}"></strong><a href="#" onclick="portalview.loadMore('${portletId }')"><span id="shortcutName">待办发文</span></a>  </div>
+</div>
+<div id="slideBoxinfo41747" class="slideBox play-list m-l-lg">
+	<div class="play_hd">
+		<ul></ul>
+	</div>
+	<div class="play_bd" id="info41747">
+
+	</div>
+</div> -->
+
+<%- include('../../../layout/'+styles+'/footer.html') %>

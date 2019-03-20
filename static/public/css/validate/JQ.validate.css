@@ -1,0 +1,33 @@
+label.error {
+    color: red;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+label, input, button, select, textarea {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+}
+
+.panel .form-table input[type="text"], 
+.panel .form-table input[type="password"], 
+.panel .form-table select, 
+.panel .form-table-h input[type="text"], 
+.panel .form-table-h select, 
+.panel .input-default input[type="text"], 
+.panel .input-default select {
+    width: 100%;
+    height: 34px;
+    border: 1px solid #ccc;
+    color: #999;
+    margin: 0;
+    border-radius: 0;
+}
+
+input.error, select.error {
+    border-color: red !important;
+}

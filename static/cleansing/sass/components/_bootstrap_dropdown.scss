@@ -1,0 +1,211 @@
+﻿/*!
+ * Path : components/_bootstrap_dropdown.scss
+ * 弹出式菜单
+ *		项目中很多样式多依赖于此样式
+ * Copyright 2016 JiaCheng GeZhiGang
+ */
+@mixin background-linear{
+    color: #fff;
+	text-decoration: none;
+	background-color: #0081c2;
+	background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
+	background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
+	background-image: -o-linear-gradient(top, #0088cc, #0077b3);
+	background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+	background-repeat: repeat-x;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc',endColorstr='#ff0077b3',GradientType=0);
+}
+
+.dropup,.dropdown{
+	position:relative
+}
+.dropdown-toggle{
+	*margin-bottom:-3px
+}
+.dropdown-toggle:active,
+.open .dropdown-toggle{
+	outline:0
+}
+.caret{
+	display:inline-block;
+	width:0;
+	height:0;
+	vertical-align:top;
+	border-top:4px solid #000;
+	border-right:4px solid transparent;
+	border-left:4px solid transparent;
+	content:""
+}
+.dropdown .caret{
+	margin-top:8px;
+	margin-left:2px
+}
+.dropdown-menu{
+	position:absolute;
+	top:100%;
+	left:0;
+	z-index:10000;
+	display:none;
+	float:left;
+	min-width:160px;
+	padding:5px 0;
+	margin:2px 0 0;
+	list-style:none;
+	background-color:#fff;
+	border:1px solid #ccc;
+	border:1px solid rgba(0,0,0,0.2);
+	*border-right-width:2px;
+	*border-bottom-width:2px;
+	@include border-radius(6px);
+	@include box-shadow(0 5px 10px rgba(0,0,0,0.2));
+	-webkit-background-clip:padding-box;
+	-moz-background-clip:padding;
+	background-clip:padding-box;
+	max-height:210px;
+	overflow-y:auto;
+	&.pull-right{
+		right:0;
+		left:auto;
+	}
+	.divider{
+		*width:100%;
+		height:1px;
+		margin:9px 1px;
+		*margin:-5px 0 5px;
+		overflow:hidden;
+		background-color:#e5e5e5;
+	}
+	&> li > a{
+		display:block;
+		padding:3px 20px;
+		clear:both;
+		font-weight:normal;
+		line-height:20px;
+		color:#333;
+		white-space:nowrap;
+		&:hover,&:focus{
+			@include background-linear;		
+		}
+	}
+	&>.active > a{
+		@include background-linear;
+		outline: 0;
+		&:hover,&:focus{
+			@include background-linear;
+			outline: 0;
+		}
+	}
+	&>.disabled>a{
+		color:#999;
+		&:hover,&:focus{
+			color:#999;
+			text-decoration:none;
+			cursor:default;
+			background-color:transparent;
+			background-image:none;
+			filter:progid:DXImageTransform.Microsoft.gradient(enabled=false)
+		}
+	}
+}
+
+.dropdown-submenu:hover > a, 
+.dropdown-submenu:focus > a{
+	@include background-linear;
+}
+.open>.dropdown-menu{
+	display:block
+}
+.pull-right>.dropdown-menu{
+	right:0;left:auto
+}
+
+.dropup .caret,
+.navbar-fixed-bottom .dropdown .caret{
+	border-top:0;
+	border-bottom:4px solid #000;
+	content:""
+}
+.dropup .dropdown-menu,
+.navbar-fixed-bottom .dropdown .dropdown-menu{
+	top:auto;
+	bottom:100%;
+	margin-bottom:1px;
+}
+.dropdown-submenu{
+	position:relative;
+	&>.dropdown-menu{
+		top:0;
+		left:100%;
+		margin-top:-6px;
+		margin-left:-1px;
+		@include border-radius(0 6px 6px 6px);
+	}
+	&:hover>.dropdown-menu{
+		display:block
+	}
+}
+.dropup .dropdown-submenu>.dropdown-menu{
+	top:auto;
+	bottom:0;
+	margin-top:0;
+	margin-bottom:-2px;
+	@include border-radius(5px 5px 5px 0);
+}
+.dropdown-submenu>a:after{
+	display:block;
+	float:right;
+	width:0;
+	height:0;
+	margin-top:5px;
+	margin-right:-10px;
+	border-color:transparent;
+	border-left-color:#ccc;
+	border-style:solid;
+	border-width:5px 0 5px 5px;
+	content:" "
+}
+.dropdown-submenu:hover>a:after{
+	border-left-color:#fff
+}
+.dropdown-submenu.pull-left{
+	float:none
+}
+.dropdown-submenu.pull-left>.dropdown-menu{
+	left:-100%;
+	margin-left:10px;
+	@include border-radius(6px 0 6px 6px);
+}
+.dropdown .dropdown-menu .nav-header{
+	padding-right:20px;
+	padding-left:20px
+}
+
+.dropdown-menu{
+	font-size:13px;
+	border-radius:2px;
+	@include box-shadow(0 2px 6px rgba(0,0,0,0.1));
+	border:1px solid #ddd;
+	border:1px solid rgba(0,0,0,0.1);
+	&.pull-left{
+		left:100%;
+	}
+	&>.panel{
+		border:none;
+		margin:-5px 0;
+	}
+	&>li>a{
+		padding:5px 15px;
+	}
+	&>li>a:hover,
+	&>li>a:focus,
+	&>.active>a,
+	&>.active>a:hover,
+	&>.active>a:focus{
+		background-image:none;
+		filter:none;
+		background-color:#6195e4 !important;
+		color:#fff;
+	}
+}
+.fr .dropdown-menu{right:0;left:auto;}

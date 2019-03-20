@@ -1,0 +1,95 @@
+<%- include('../../../layout/'+styles+'/header.html') %>
+  <script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-dynrow/jc.dynrow.js"></script>
+
+
+
+<section class="scrollable padder jcGOA-section" id="scrollable">
+    <header class="crumbs-container pull-in" id="navigationMenu"></header>
+    <section class="panel m-t-md search-box clearfix">
+        <div class="content">
+            <h2 class="panel-heading clearfix">pages/com/dynrow/index.html
+                <a href="http://89team.com">文档地址</a>
+            </h2>
+            <form id="testForm" class="table-wrap">
+                <table class="table table-striped" id="testTable">
+                    <thead>
+                        <tr>
+                            <th style="width:25%">名称</th>
+                            <th style="width:25%">年龄</th>
+                            <th style="width:25%">组别</th>
+                            <th style="width:25%">
+                                <a href="javascript:void(0)" class="btn" onclick="table.addRow(2);">添加</a>
+                            </th>
+                        </tr>
+                    </thead>
+                </table>
+            </form>
+          </div>
+    </section>
+</section>
+
+
+<script id="tableTmpl" type="text/x-jquery-tmpl">
+<tr>
+    <td><input type="text" name="data[{{ indexId}}].name"/></td>
+    <td><input type="text" name="data[{{ indexId}}].age"/></td>
+        <td><input type="text" name="data[{{ indexId}}].group"/></td>
+    <td><a href="#" class="btn btn-error delete">删除</a></td>
+</tr>
+</script>
+
+  <script type="text/javascript">
+    var indexId = 1;
+    var table = new JC.Dynrow("testTable", {
+      tmplId: "tableTmpl",	//模版id					    必填
+      addNextId: "tmpl-tr-id",//tr的id从这行开始追加行数    选填
+      params: {			//模版参数					选填
+        id: "auto-tr-id",
+        klass: "matter",
+        tds: {
+          id: "auto-td",
+          name: "auto-td-name"
+        }
+      },
+      reference: null,
+      deflutOne: true,		//是否默认添加一行			选填
+      deleteLast: true,		//是否可以删除一行不剩		选填
+      echoForm: "formTest",	//回显form的id标识			选填（注*有回显数据则必填）
+      //检查单元格是否含有跨列rpwspan的selector			    选填
+      checkRow: "[data-table='rowspan']",
+      fnAdd: function (html) {
+        //@param html [type=dom] 当前添加上的这行html
+        indexId++;			//添加按钮的元素上必须要有data-table='dynrow'属性
+      },
+      fnDel: function (len) {
+        //@param len [type=number] 剩余行数
+        if (len == 0) {		//删除按钮的元素上必须要有delete样式 class="delete"
+          alert("都删除没了");
+        }
+      },
+      fnDelBefore: function ($tr) {
+        //当前删除行的jQuery对象
+        //console.log($tr);
+      }
+    });
+    table.addRow(1);
+    // //清空所有行
+    // table.deleteAll();
+    // //添加一行
+    // table.addRow();
+
+    // /**
+    // *  删除一行
+    // *  如不填写index值则删除最后一行
+    // */
+    // table.deleteRow(index);
+
+    // /**
+    // *  获取行的dom对象 
+    // *  如不填写index值则返回最后一行，如没有值则返回undefined
+    // */
+    // table.getRow(index);
+
+  </script>
+
+<%- include('../../../layout/'+styles+'/footer.html') %>

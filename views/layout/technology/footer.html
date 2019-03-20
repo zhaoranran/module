@@ -1,0 +1,96 @@
+</section>
+</section>
+</section>
+</section>
+<div id="loginAutoAttence"></div>
+<script type="text/javascript" src="<%= rootPath%><%= styles%>/js/jc/jc.technology.js"></script>
+<script type="text/javascript" src="<%= rootPath%><%= styles%>/js/jc/jc.nav.js"></script>
+<script type="text/javascript">
+    var historyUrl = new Array();
+    var i18nData = {}; //全局资源文件数据
+    var $doc = $(document);
+    var desktop = {}, $document = $(document);
+    $doc.ready(function () {
+        /**
+         * 初始化页面浏览记录类
+         * 此对象将给页面或iframe里 提供一些方法
+         * 1. 对左菜单操作  JC.histObj.sidemenu.goActivity(menuId);
+         * 2. 获取面包屑    JC.histObj.sidemenu.getCrumbs(menuId);
+         * 3. 搜索框隐藏    JC.histObj.sidemenu.searchHide();
+         */
+        if (!JC.histObj) {
+            JC.histObj = new JC.Historys();
+        }
+
+        //保存top5数据
+        JC.histObj.setTopFive();
+
+        new JC.UserInfo({
+            color: '' || 'blue',
+            theme: '' || 'standard',
+            font: '' || 'standard',
+            //voice : $.cookie('voiceSwitch') === 'false' ? 'off' :'on'
+        });
+        $("#dataLoad").hide(); //页面加载完毕后即将DIV隐藏
+
+        // JC.histObj.sidemenu = new JC.SideMenu('#JCLeftMenu');
+
+        //左菜单初始化
+        desktop.sidemenu = new JC.SideMenu({
+            ele: $('#JCLeftMenu'),
+            ready: function () {
+                var menuId = '<%= menuId%>';
+                if (menuId) {
+                    //初始化Toopltip
+                    $("[data-toggle='tooltip']").tooltip();
+                    //this._getData
+                    //隱藏做菜單點擊后的除一級意外的菜單
+                    this.goActivity('<%= menuId%>');
+                    $('#navigationMenu').html(this.getCrumbs('<%= menuId%>'));
+                }
+            }
+        });
+        //初始化全局的展开收起
+        $('#search-shrinkage').searchControl();
+        //点击导航绘制左菜单功能
+        $document.on('click', '[data-head="menu"]', function (e) {
+            var $this = $(e.target);
+            if (!$this.is('a')) $this = $this.parent();
+            var actcion = $this.attr('action'),
+                id = $this.attr('id').split('jcleftmenu_')[1],
+                isRootPotal = $this.attr('potal');
+
+            //JC.navigation(id);
+            desktop.sidemenu.headMenu = null;
+            desktop.sidemenu.drawLeft(id);
+
+            if (actcion) {
+                JC.LoadPage({
+                    id: id,
+                    name: $this.attr('name'),
+                    url: actcion,
+                }, true);
+            }
+        });
+
+        $doc.on("keydown", function (e) {
+            if (e.keyCode == 8 && e.target.tagName != "INPUT" && e.target.tagName != "TEXTAREA")
+                return false;
+        });
+
+        //在线人员
+        $("#onlineCount").on("click", function () {
+            showOnlinePerson.init();
+        });
+        //初始化Toopltip
+        $("[data-toggle='tooltip']").tooltip();
+
+
+        //初始化左菜单并监听窗口变化事件
+        JC.leftScroll();
+        
+
+    });
+</script>
+</body>
+</html>

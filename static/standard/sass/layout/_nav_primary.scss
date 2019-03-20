@@ -1,0 +1,367 @@
+﻿/*!
+ * Path : layout/_nav_primary.scss
+ * 左菜单和信息列表样式
+ *		项目中很多样式多依赖于此样式
+ * Copyright 2016 JiaCheng GeZhiGang
+*/
+#nav{
+	background: #fff;
+}
+.menu-toggle-middle a{
+	position:absolute;
+	right:-16px;
+	top:50%;
+	display:block;
+	width:16px;
+	height:73px;
+	margin-top:-38px;
+	line-height:73px;
+	text-align:center;
+	border:1px solid #dfdfdf;
+	background-color:#fff;
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	outline:none;
+}
+.menu-toggle-middle a i{
+	width:6px;
+	height:8px;
+	display:inline-block;
+	color:#60aae9;
+}
+/* 折叠菜单后  显示滚动条*/
+.nav-xs { width: 0px; }
+
+.nav{
+	padding-left:0;
+	margin-bottom:0;
+	list-style:none;
+	&:before,&:after{
+		display:table;
+		content:" ";
+	}
+	&:after{
+		clear:both;
+	}
+	&>li{
+		position:relative;
+		display:block;
+		&>a{
+			display:block;
+			position:relative;
+			&:hover,&:focus{
+				text-decoration:none;
+			}
+			&>img{
+				max-width:none;
+			}
+		}
+	}
+	&>.pull-right{
+		float:right;
+	}
+	li+.nav-header{margin-top:9px}
+}
+.nav-leftmenu{
+	li{
+		&.active{
+			background:#f6f8fa;
+		}
+		& > a > i{
+			line-height:24px;
+			margin-top: 8px;
+			width:24px;
+			float:left;
+			margin-right:10px;
+			font-size: $global-font-size;
+			border-right:1px solid rgba(255,255,255,0.05);
+			text-align:center;
+			position:relative;
+			overflow:hidden;
+			border-radius: 4px;
+			font-weight: normal;
+			color: #fff !important;
+		}
+		&.active > a > i{
+			color : $global-nav-text-hover-color;
+		}
+		&>ul li i{
+			font-size:$global-font-size + 2;
+		}
+		&>a>i:before{
+			position:relative;
+			z-index:33;
+		}
+		@if($global-nav-grid-is-show){
+			&>a>i>b{
+				position:absolute;
+				width:100%;
+				top:0;
+				left:0;
+				bottom:0;
+				z-index:3;
+			}
+		}
+		a{
+			text-transform:none;
+		}
+	}
+	li>ul li:before {
+	    content: "";
+	    position: absolute;
+	    top: -20px;
+	    left: 0;
+	    height: 40px;
+	    width: 1px;
+	    border-left: 1px dashed #cdcfd0;
+	    z-index: 1;
+	}
+	li>ul li.liHeight:before{
+		height:100%;
+	}
+	li>ul li:after {
+	    content: "";
+	    position: absolute;
+	    top: 20px;
+	    left: 0;
+	    width: 20px;
+	    border-bottom: 1px dashed #cdcfd0;
+	    z-index: 1;
+	}
+	li>ul li a:before {
+	    content: "";
+	    position: absolute;
+	    top: 18px;
+	    left: -2px;
+	    width: 5px;
+	    height: 5px;
+	    background:#808080;
+	    z-index:2;
+	}
+	li>ul li.active a.active span{
+	    color:#333;
+	    &.pull-right{
+	    	color: #999;
+	    }
+	}
+	ul.nav>li{
+		&>a{
+			padding:0 15px;
+			position:relative;
+			font-weight:bold;
+			font-size: $global-font-size;
+			line-height: 40px;
+			@include transition(color .3s ease-in-out 0s);
+			outline: none;
+			color: #999;
+		}
+		&>a.active .text{
+			display:none;
+		}
+		&>a.active .text-active{
+			display:inline-block !important;
+		}
+
+		&:hover>a,&:focus>a,&>a:hover,&>a:active,&.active>a{
+			color: #999;
+			font-size: $global-font-size + 1;
+			text-shadow:none;
+			background-color: transparent !important;
+			&>.pull-right{
+				font-weight: no-repeat;
+				font-size: $global-font-size;
+			}
+		}
+		/*针对邮箱签名设置ueditor样式冲突解决方案*/
+		&>ol>li{
+			list-style-type: decimal;
+		}
+		&>ul.list-paddingleft-2>li{
+			list-style-type: disc;
+		}
+		&>ul.list-paddingleft-1,&>ul.list-paddingleft-2,&>ul.list-paddingleft-3{
+			display:block;
+		}
+		&>ul{
+			li{
+				padding-left: 25px;
+			}
+		}
+		&.active>ul{
+			display:block;
+			li{
+				a{
+					color: #999;
+					font-size: $global-font-size;
+					}
+				}
+			}
+		}
+	ul.nav ul{
+		display:none;
+	}
+	li>a>i>b.b-bg-1{background-color:#fb6b5b;}
+	li>a>i>b.b-bg-2{background-color:#ffc333;}
+	li>a>i>b.b-bg-3{background-color:#8ec165;}
+	li>a>i>b.b-bg-4{background-color:#60aae9;}
+	li>a>i>b.b-bg-5{background-color:#aece4e;}
+	li>a>i>b.b-bg-6{background-color:#00c0ef;}
+	li>a>i>b.b-bg-7{background-color:#f3a641;}
+	li>a>i>b.b-bg-0{background-color:#00a65a;}
+}
+:root .nav-leftmenu li > ul li.active a.active:before {background: #ff9800;}
+.nav-primary{
+	border-bottom:1px solid rgba(255,255,255,0.05);
+	li{
+		line-height:1.5;
+		&>a>i{
+			margin:-12px -15px;
+			line-height:44px;
+			width:44px;
+			float:left;
+			margin-right:10px;
+			font-size:19px;
+			border-right:1px solid rgba(255,255,255,0.05);
+			text-align:center;
+			position:relative;
+			overflow:hidden;
+		}
+		&.active>a>i{
+			color : $global-nav-text-hover-color;
+		}
+		&>ul li i{
+			font-size:16px;
+		}
+		&>a>i:before{
+			position:relative;
+			z-index:2;
+		}
+		@if($global-nav-grid-is-show){
+			&>a>i>b{
+				position:absolute;
+				left:-41px;
+				width:100%;
+				top:0;
+				bottom:0;
+				z-index:0;
+				@include transition(left .25s);
+			}
+		}
+	}
+
+	ul.nav>li{
+		&>a{
+			padding:11px 15px;
+			position:relative;
+			font-weight:bold;
+			font-size:14px;
+			border-top:1px solid transparent;
+			border-color:rgba(255,255,255,0.05);
+			@include transition(color .3s ease-in-out 0s);
+			outline: none;
+		}
+		&>a>.badge{
+			font-size:11px;
+			padding:3px 6px;
+		}
+		&>a.active .text{
+			display:none;
+		}
+		&>a.active .text-active{
+			display:inline-block !important;
+		}
+
+		&:hover>a,&:focus>a,&>a:hover,&>a:active,&.active>a{
+			color: $global-nav-text-hover-color;
+			background-color: $global-nav-bg-color !important;
+			text-shadow:none;
+		}
+
+		/*针对邮箱签名设置ueditor样式冲突解决方案*/
+		&>ol>li{
+			list-style-type: decimal;
+		}
+		&>ul.list-paddingleft-2>li{
+			list-style-type: disc;
+		}
+		&>ul.list-paddingleft-1,&>ul.list-paddingleft-2,&>ul.list-paddingleft-3{
+			display:block;
+		}
+
+		&:hover>a>i>b,
+		&:focus>a>i>b,
+		&>a:hover>i>b,
+		&>a:focus>i>b,
+		&>a:active>i>b,
+		&.active>a>i>b{
+			left:0 !important;
+		}
+		li a{
+			font-weight:normal;
+			text-transform:none;
+		}
+		&.active>ul{
+			display:block;
+		}
+	}
+
+	ul.nav ul{
+		display:none;
+	}
+
+	li>a>i>b.b-bg-1{background-color:#fb6b5b;}
+	li>a>i>b.b-bg-2{background-color:#ffc333;}
+	li>a>i>b.b-bg-3{background-color:#8ec165;}
+	li>a>i>b.b-bg-4{background-color:#60aae9;}
+	li>a>i>b.b-bg-5{background-color:#aece4e;}
+	li>a>i>b.b-bg-6{background-color:#00c0ef;}
+	li>a>i>b.b-bg-7{background-color:#f3a641;}
+	li>a>i>b.b-bg-0{background-color:#00a65a;}
+}
+
+.nav-leftmenu>ul>li>ul{padding-left: 25px;}
+.nav-leftmenu>ul.nav>li{
+	border-left: 2px solid #fb6b5b;
+}
+.nav-primary>ul.nav>li+li{
+	border-left: 2px solid #ffc333;
+}
+.nav-leftmenu>ul.nav>li+li+li{
+	border-left: 2px solid #8ec165;
+}
+.nav-leftmenu>ul.nav>li+li+li+li{
+	border-left: 2px solid #60aae9;
+}
+.nav-leftmenu>ul.nav>li+li+li+li+li{
+	border-left: 2px solid #aece4e;
+}
+.nav-leftmenu>ul.nav>li+li+li+li+li+li{
+	border-left: 2px solid #00c0ef;
+}
+.nav-leftmenu>ul.nav>li+li+li+li+li+li+li{
+	border-left: 2px solid #f3a641;
+}
+.nav-leftmenu>ul.nav>li+li+li+li+li+li+li+li{
+	border-left: 2px solid #00a65a;
+}
+
+.text-active,.active>.text{
+	display:none !important;
+}
+.active>.text-active{
+	display:inline-block !important;
+}
+
+/*信息管理 信息发布样式*/
+.divinfo .nav-primary ul.nav > li > a:hover, 
+.divinfo .nav-primary ul.nav > li.active > a:hover { 
+    background-color: #f7f7f7 !important; 
+}
+
+.divinfo .nav-primary ul.nav > li > a, 
+.divinfo .nav-primary ul.nav > li.active > a { 
+    color: #717171; 
+    background-color: #fff !important; 
+    text-shadow: none; 
+    filter: gezg; 
+}

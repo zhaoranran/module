@@ -1,0 +1,186 @@
+<%- include('../../../layout/'+styles+'/header.html') %>
+
+<link rel="stylesheet" type="text/css" href="<%= rootPath%>public/css/dataTables/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="<%= rootPath%>public/node_modules/jc-tree/css/jctree.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="<%= rootPath%>/css/components/searchControl/searchControl.css"> -->
+<section class="scrollable padder jcGOA-section" id="scrollable">
+    <header class="crumbs-container pull-in" id="navigationMenu"></header>
+    <section class="panel clearfix search-box search-shrinkage" id="search-shrinkage">
+        <div class="search-line hide">
+            <form class="table-wrap form-table" id="userListForm">
+                <div class=""></div>
+                <table class="table table-td-striped">
+                    <tbody>
+                    <tr>
+                        <td class="form-lable" width="15%">帐号</td>
+                        <td><input type="text" id="username" name="username" class=""></td>
+                        <td class="form-lable" width="15%">姓名</td>
+                        <td><input type="text" id="name" name="name" class=""></td>
+                    </tr>
+                    <tr>
+                        <td class="form-lable" width="15%">文本框区间</td>
+                        <td>
+                            <div class="input-group w-p100">
+                                <input id="" name="" data-field="text" class="" style="" type="text">
+                                <div class="input-group-btn w30">-</div>
+                                <input id="" name="" data-field="text" class="" type="text">
+                            </div>
+                        </td>
+                        <td class="form-lable" width="15%">姓名</td>
+                        <td><div id="jctreeUser1"></div></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <section class="form-btn m-b-lg">
+                    <button class="btn dark query-jump" type="button" id="search">查 询</button>
+                    <button class="btn" type="reset" id="queryReset">重 置</button>
+                </section>
+            </form>
+        </div>
+        <!--查询条件隐藏显示dom-->
+        <div class="search-footer-block">
+            <div class="search-footer-btn">
+                <a href="javascript:void(0)" class="a-icon search-btn-one"> <i class="fa m-r-xs fa-caret-up"></i><span>显示查询条件</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2 class="panel-heading clearfix">pages/com/user/index.html</h2>
+        <div class="table-wrap">
+            <table class="table table-striped first-td-tc tab_height" id="userTable">
+                <thead>
+                    <tr>
+                        <th style="width:25%">ID</th>
+                        <th style="width:25%">帐号</th>
+                        <th style="width:25%">姓名</th>
+                        <th style="width:30%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                </tbody>
+            </table>
+        </div>
+	</section>
+</section>
+<script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-dataTables/jc.dataTables.js"></script>
+<script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-layer/jc.layer.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/ChinesePY.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/jquery.ztree.all-3.5.min.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/select2.all.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/jctree.js"></script>
+<script>
+	$(function() {
+		var user = {};
+	
+        user.oTable = null;
+        var config = {
+            formId : "userListForm",
+            tableId : "userTable",
+            tableUrl : "/server/api/getUserList",
+            tableColumns : [
+                { "mData": "id",
+                  "mRender" : function(source) { return "<span title='"+source.userName+"'>"+source.userName+"</span>";},// 操作人员
+                },
+                {"mData": "username"},
+                {"mData": "name"},
+            ],
+            hasCheckbox : false,
+            bSort: true,
+            iDisplayLength:5,
+            buttonList : [],
+            themeStyle : "<%= styles%>",
+            paging: true, // 禁止分页
+            
+        }
+        // 分页查询
+        user.search = function() {
+            config.buttonList = [
+                {name:"",operateType:"view", aclass:"view a-icon i-new i-looks m-r-xs",icon:"fa fa-search4",tipname:"查看", url:"/server/api/getUser", params:{}},
+                {name:"",operateType:"edit", aclass:"edit a-icon i-edit m-r-xs",icon:"fa fa-edit2",tipname:"编辑", url:"/server/api/getUser", params:{}},
+                {name:"",operateType:"delete", aclass:"delete a-icon i-remove m-r-xs",icon:"fa fa-remove",tipname:"删除", url:"", params:{}},
+                {name:"dd",operateType:"", aclass:"a-icon i-new m-r-xs",icon:"", url:"", params:{}}//自定义
+                
+            ]
+            // config.fnDrawCallback();
+            if(user.oTable == null) {
+                user.oTable = jcTable.init(config);
+            }else{
+                user.oTable.draw();
+            }
+            
+        };
+      /*   var person1 = new JC.Tree.Lazy({
+            container: 'jctreeUser1',//容器id
+            controlId: 'name0-name0',//插件生成的表单元素id / -后是name
+            single: true,//false = 多选 | true = 单选
+        }); */
+       
+       var person2 = new JC.Tree.Person({
+            container      : 'jctreeUser', //or $('#userUpdateDivId)
+            controlId  : 'jctree1',     //or 不填写
+            single    : true,
+        });
+        user.search();
+        //console.log(config.buttonList.length);
+		$("#search").click(user.search);
+		 $('#userTable tbody').on('click', 'a.edit', function() { // 编辑事件
+			$.ajax({
+		        type : "GET",
+		        url : $(this).attr("url"),
+		        data : {
+		            "id" : $(this).attr("id")
+		        },
+		        dataType : "json",
+		        success : function(data) {
+		            if (data) {
+		                $('#userForm #loginName').val(data.data[0].username);
+		                $('#userForm #displayName').val(data.data[0].name);
+                        $('#userEdit').modal('show');
+                        person2.setData(
+                            {id: 200028,text: "王司机"}
+                        );
+		            }
+		        }
+		    });
+		});
+		$('#userTable tbody').on('click', 'a.delete', function() { // 删除事件
+			var that = $(this);
+			JC.layer.confirm({
+                content: '确定删除吗？',
+                yes: function(index, layro) {
+                    that.parents('tr').remove();
+                    JC.layer.close(index);
+                }
+           });
+        });
+        $('#userTable tbody').on('click', 'a.a-icon', function() { // 删除事件
+            var that = $(this);
+            console.log(that.attr("operateType"));
+			
+        });
+		$("#saveAndClose").click(function(){ // 保存事件
+			$('#userEdit').modal('hide');
+		});
+		$("#userDivClose").click(function(){ // 关闭事件
+			$('#userEdit').modal('hide');
+		});
+		//初始化Toopltip
+        $("[data-toggle='tooltip']").tooltip();
+        function aaa(){
+            alert(123);
+        }
+    });
+    //人员初始化单选
+	
+</script>
+<% include ../../../pages/com/user/userEdit.html %>
+<%- include('../../../layout/'+styles+'/footer.html') %>

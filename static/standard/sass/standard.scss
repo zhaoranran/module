@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+//引入类文件      注意*  引入顺序不可更改。
+@import "themes/color_params_F14Blue";//全局变量 配色方案
+@import "./util/mixins";				//全局混入类
+
+@import "./base/reset";					//css重置
+@import "./base/base";					//基础公用样式
+@import "./base/cycle";					//首页轮播样式
+//@import "../../layout/bootstrap_grid";		//bootstrap网格布局
+//@import "./components/bootstrap/jc.bootstrap";//弹出提示插件样式
+@import "./components/bootstrap_dropdown";//弹出提示插件样式
+@import "./components/bootstrap_button";	//按钮样式
+@import "components/nav_tabs";			//header导航样式 标签页
+@import "./components/pagination";		//分页
+@import "./components/bootstrap_modal";	//弹出层
+@import "./components/bootstrap_tooltip";	//提示信息 tooltip
+@import "./components/bootstrap_popover";	//弹出提示 arrow
+@import "./components/element";	//组件样式
+@import "./util/util";					//工具样式库
+
+@import "./layout/table";					//table样式 列表和表单样式 及 panel定义
+@import "./layout/nav_primary"; 			//左菜单和信息列表样式
+@import "./components/con_header";		//内容页header区域按钮、列表按钮、nav-tabs、tabs-wrap
+
+@import "components/system_component";	//系统公共组件样式
+
+@import "components/potal";	            //门户相关样式
+
+@import "vendors/jctree";				//人员树插件
+@import "vendors/datepicker";			//时间插件样式
+@import "vendors/datatables";			//dataTable列表样式
+@import "vendors/timeline";				//时间轴插件样式

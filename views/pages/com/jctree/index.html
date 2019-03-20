@@ -1,0 +1,262 @@
+<%- include('../../../layout/'+styles+'/header.html') %>
+<link rel="stylesheet" type="text/css" href="<%= rootPath%>public/node_modules/jc-tree/css/jctree.min.css">
+<section class="scrollable padder jcGOA-section" id="scrollable">
+    <!-- 面包屑位置 -->
+    <header class="crumbs-container pull-in" id="navigationMenu"></header>
+    <section class="panel m-t-md clearfix">
+        <div class="content">
+            <h2 class="panel-heading clearfix">pages/com/jctree/index.html</h2>
+            <form class="table-wrap form-table" id="userListForm">
+                <table class="table table-td-striped">
+                    <tbody>
+                        <tr>
+                            <td class="form-lable" style="width:10%">人员(单选)</td>
+                            <td style="width:40%"> <div id="jctreeUser1"></div></td>
+                            <td class="form-lable" style="width:10%" id="btn_set">人员(多选)</td>
+                            <td style="width:40%"><div id="jctreeUser2"></div></td>
+                        </tr>
+                        <tr>
+                            <td class="form-lable">机构(单选)</td>
+                            <td> <div id="jctreeOrg1"></div></td>
+                            <td class="form-lable">机构(多选)</td>
+                            <td><div id="jctreeOrg2"></div></td>
+                        </tr>
+                        <tr>
+                            <td class="form-lable">机构部门(单选)</td>
+                            <td> <div id="controlDept1"></div></td>
+                            <td class="form-lable">机构部门(多选)</td>
+                            <td><div id="controlDept2"></div></td>
+                        </tr>
+                        <tr>
+                            <td class="form-lable">左右选择(单选)</td>
+                            <td> <div id="controLeftRight1"></div></td>
+                            <td class="form-lable">左右选择(多选)</td>
+                            <td><div id="controLeftRight2"></div></td>
+                        </tr>
+                        <tr>
+                            <td class="form-lable">动态加载树(支持大数据量)</td>
+                            <td> <div id="userUpdateDivId1"></div></td>
+                            <td class="form-lable">动态加载树(支持大数据量)</td>
+                            <td> <div id="userUpdateDivId2"></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="jctree-style">
+                    <h2 class="panel-heading clearfix">权限树</h2>
+                    <div id="controlZtree"></div>
+                    <a class="btn" onClick="addNode();">添加一个节点</a>
+                    <a class="btn" onclick="removeNode();">删除选中节点</a>
+                    <a class="btn" onclick="getChildNodesId();">获取所有选中节点的id</a>
+                </div>
+                <div class="jctree-style m-t">
+                    <div class="btn" id="onlineCounts">显示在线人员</div>
+                </div> 
+            </form>
+        </div>
+    </section>
+</section>
+<script>
+    function getRootPath(){
+        return 'server';
+    }
+</script>
+<script type="text/javascript" src="<%= rootPath%>public/node_modules/jc-layer/jc.layer.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/ChinesePY.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/jquery.ztree.all-3.5.min.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/select2.all.js"></script>
+<script src="<%= rootPath%>public/node_modules/jc-tree/js/jctree.js"></script>
+<script>
+
+var zPid = null,rNode = null;
+
+$(document).ready(function(){
+	//人员初始化单选
+	var person = new JC.Tree.Person({
+		container: 'jctreeUser1',//容器id
+	    controlId: 'name0',//插件生成的表单元素id / -后是name
+        single: true,//false = 多选 | true = 单选
+        callback:function(obj){
+            
+        }
+    });
+    
+    //人员初始化多选
+    var person2 = new JC.Tree.Person({
+        container: 'jctreeUser2',
+        controlId: 'name1',
+        single: false,
+        btnSite:false,//判断人员树图标的位置
+        callback:function(){
+            
+        }
+
+    });
+    $('#btn_set').click(function(){
+        console.log(person2);
+        person2.setData([
+                {
+                    "id":"200032",
+                    "text":"aaaa"
+                }]
+            )
+    });
+    
+    //机构(单选)
+    var org1 = new JC.Tree.Org({  
+        container   : 'jctreeOrg1',
+        controlId: 'name2-name2',
+        single : true,
+        expand:true,
+        isReadonly:false
+    });
+    //机构(多选)
+    var org2 = new JC.Tree.Org({  
+        container   : 'jctreeOrg2',
+        controlId: 'name3-name3',
+        single : false,
+    })
+    //机构部门(单选)
+    var orgDept1 = new JC.Tree.OrgDept({  
+        container   : 'controlDept1',
+        controlId: 'name4-name4',
+        single: true,
+    })
+    //机构部门(多选) 	
+    var orgDept2 = new JC.Tree.OrgDept({  
+        container   : 'controlDept2',
+        controlId: 'name5-name5',
+        single: false,
+            
+    })
+        
+    //左右选择树(单选)
+    var mutual = new JC.Tree.Mutual({  
+        container   : 'controLeftRight1',
+        controlId: 'name6-name6',
+        single: true,
+       /*  isReadonly: true */
+       parseData : function(node){
+            return {
+                id : node.id,                   //ID
+                text : node.name,              //显示的内容
+                hp: Pinyin.GetHP(node.name),      //两个汉字输入全拼,三个以上的汉字，第一个汉字全拼，后面的汉字简拼
+                qp: Pinyin.GetQP(node.name),      //汉字的全拼
+                jp: Pinyin.GetJP(node.name),      //汉字的简拼
+                wc: Pinyin.getWordsCode(node.name) //单词首字母获取
+            }
+        },
+    })
+
+    //左右选择树(多选)
+    var mutual = new JC.Tree.Mutual({  
+        container   : 'controLeftRight2',
+        controlId: 'name7-name7',
+        single: false,
+        //自定义数据
+       /*  myData: [
+            {
+                id: 1,
+                text: "项目1"
+            },
+            {
+                id: 2,
+                text: "项目2"
+            },
+            {
+                id: 3,
+                text: "项目3"
+            },
+            {
+                id: 4,
+                text: "项目4"
+            },
+            {
+                id: 5,
+                text: "项目5"
+            }
+        ],*/
+        parseData : function(node){
+            return {
+                id : node.id,                   //ID
+                text : node.name,              //显示的内容
+                hp: Pinyin.GetHP(node.name),      //两个汉字输入全拼,三个以上的汉字，第一个汉字全拼，后面的汉字简拼
+                qp: Pinyin.GetQP(node.name),      //汉字的全拼
+                jp: Pinyin.GetJP(node.name),      //汉字的简拼
+                wc: Pinyin.getWordsCode(node.name) //单词首字母获取
+            }
+        },
+        //回显数据没有可不填写
+       
+    })
+    /* 权限树 */
+    ztreeobj = new JC.Tree.Ztree({
+        container: 'controlZtree',
+        single: true,
+        rootNode: true,
+        expand: true,//展开全部节点
+        /**
+         * treeId   == controlZtree
+         * treeNode == 当前点击节点的node对象
+         */
+        onClick: function(event, treeId, treeNode) {
+            rNode = treeNode;
+            zPid = treeNode.id;
+            //window.console && console.log(treeNode);
+        }
+ 	})
+
+    var lazy1 = new JC.Tree.Lazy({
+        title: '新人员选择树',
+        container      : 'userUpdateDivId1', //or $('#userUpdateDivId)
+        controlId  : 'update-leaderId',     //or 不填写
+        single    : true,
+        rootNode: true,
+        expandRootNode: true
+    });
+    var lazy2 = new JC.Tree.Lazy({
+        title: '新人员选择树',
+        container      : 'userUpdateDivId2', //or $('#userUpdateDivId)
+        controlId  : 'update1-leaderId1',     //or 不填写
+        single    : false,
+        url: getRootPath() + '/api/system/managerDeptTree.action',
+        maxSelectedShowNum:2
+        
+    });
+    $("#onlineCounts").on("click", function() {
+        showOnlinePerson.init();
+    });
+});
+
+//添加一个节点,可指定父节点,如父节点传入null则添加为根节点
+var index = 10010;
+function addNode(){
+    index ++;
+	var treeObj = ztreeobj.getZTreeObj();
+	if(zPid){
+		var pNode = treeObj.getNodeByParam("id", zPid);
+		var newNode = [{
+			id: index,
+			name: '测试添加',
+			deptType: 'org',
+			iconSkin: 'fa-flag',
+			leaderName: '测试的',
+			userType: '1'
+		}];
+		ztreeobj.addNodes(pNode ,newNode);
+	}
+}
+//删除选中节点
+function removeNode(){
+	if(rNode){
+		ztreeobj.removeNode(rNode);
+		rNode = null;
+	}
+}
+//获取指定节点的所有节点的id字符串  使用,分隔
+function getChildNodesId(){
+	alert(ztreeobj.getChildNodesId(ztreeobj.getRootNode()));
+}
+</script>
+
+
+<%- include('../../../layout/'+styles+'/footer.html') %>

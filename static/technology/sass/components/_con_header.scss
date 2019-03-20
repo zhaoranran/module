@@ -1,0 +1,142 @@
+﻿/*!
+ * Path : components/_con_header.scss
+ * 内容页header区域按钮
+ *		列表按钮、nav-tabs、tabs-wrap
+ * Copyright 2016 JiaCheng GeZhiGang
+*/
+.modal .tabs-wrap+.panel{border-top-left-radius: 0;}
+.modal .tabs-wrap-in{margin:15px;}
+.modal .tabs-wrap .nav{font-size:$global-font-size - 1;border:none;}
+.modal .tabs-wrap .nav>li>a{border-radius:0;margin:0;border-width:0;display:inline-block;text-align: center;}
+.modal .tabs-wrap .nav-tabs>li.active{-webkit-box-shadow:0 0 1px rgba(0,0,0,0.12);box-shadow:0 0 1px rgba(0,0,0,0.12);}
+.modal .tabs-wrap-in .nav-tabs>li.active{-webkit-box-shadow:none;box-shadow:none;background-color:#0D6BAB;}
+.modal .tabs-wrap-in .nav-tabs>li{margin-left: 5px;}
+.modal .index-inform .tabs-wrap-in .nav-tabs > li { margin-left: 1px;}
+.modal .tabs-wrap-in .nav-tabs>li:first-child{margin-left: 0;}
+.modal .tabs-wrap .nav-tabs>li>a{line-height:1.5;color:#43a0f2;border-top:2px solid transparent;background-color: #f3f3f3;}
+.modal .tabs-wrap .nav-tabs>li>a:hover,.tabs-wrap .nav-tabs>li>a:focus{background:#eee;border-color:transparent;}
+.modal .tabs-wrap .nav-tabs>li.active>a,.modal .tabs-wrap .nav-tabs>li.active>a:hover,.modal .tabs-wrap .nav-tabs>li.active>a:focus{color:#888;background:#fff;border-width: 0;border-top:2px solid lighten($global-header-color ,5%);outline: none;}
+.modal .tabs-wrap-in .nav-tabs>li.active>a,.modal .tabs-wrap-in .nav-tabs>li.active>a:hover,.modal .tabs-wrap-in .nav-tabs>li.active>a:focus{color:#fff;background: #0172e7 ;border-top:2px solid transparent;}
+
+.modal .tabs-wrap-in .nav-tabs li a:hover,.modal .tabs-wrap-in .nav-tabs li a:focus{background:#eee !important }
+.modal .tabs-wrap-in .nav-tabs li.active a:hover,.modal .tabs-wrap-in .nav-tabs li.active a:focus{background:#0172e7  !important ;}
+.panel textarea{width:100%;border-radius:0;margin:5px 0; resize: vertical;overflow-y:auto;}
+.panel-in-box .br{margin-bottom: 0;}
+.panel-in-box .br input{margin-top:-1px; vertical-align: middle;}
+.panel-tab-con{position:relative;}
+.heading-btn .btn{background-color: lighten($global-btn-drak ,10%);border:1px solid $global-btn-drak;color:#fff;margin-left:13px;}
+.heading-btn .btn:focus,.heading-btn .btn:hover{background-color:$global-btn-drak;}
+.modal.panel{margin-bottom:0;background-color:transparent;border:0px solid transparent;border-radius:0;-webkit-box-shadow:none;box-shadow:none;position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;display:none;overflow:hidden;}
+.modal-header{background-color: #F9F8F5;}
+.modal-content{-webkit-border-radius: 0;-moz-border-radius: 0;border-radius: 0;}
+.modal.panel .modal-content .table-wrap,.modal.panel .modal-content .table-wrap .table{margin: 5px 0 20px;}
+.modal.panel .modal-content.fileback .table-wrap,.modal.panel .modal-content.fileback .table-wrap .table{margin-bottom: 20px;}
+.modal .tabs-wrap-in,.modal .modal-content .table-wrap.us-list{margin: 0;margin-bottom: 15px;}
+.modal .inline-tree .input-group-btn{width:20%;}
+.modal .modal-heading{padding: 15px 5px 10px 5px;}
+.modal .dialog{margin-top: 0;}
+.modal .p,.modal .table{margin-bottom: 0;}
+
+
+.a-icon{
+	height:26px;
+	display: inline-block; 
+	color: #fff;
+	line-height:22px; 
+	padding:0 6px;
+	white-space: nowrap;
+	margin-bottom:5px;
+	&:focus,&:hover{
+		color: #fff;
+	}
+	i{
+		width:24px;
+		height:24px;
+		line-height: 22px; 
+		text-align:center;
+		margin: 0; 
+		vertical-align: top;
+	}
+	&.i-look{
+		border:2px solid darken($list-btn-look-color,5%);
+		background-color: #fff;
+		padding-right: 0;
+		padding-left:0;
+		color: $list-btn-look-color;
+		&:focus,&:hover{
+			border:2px solid darken($list-btn-look-color,8%);
+			background-color:darken(#fff ,5%);
+		}
+	}
+	&.i-remove{
+		border:2px solid darken($list-btn-remove-color, 5%);
+		background-color: #fff;
+		color: $list-btn-remove-color;
+		padding-right: 0;
+		padding-left:0;
+		&:focus,&:hover{
+			border:2px solid darken($list-btn-remove-color,8%);
+			background-color:darken(#fff ,5%);
+		}
+	}
+	&.i-edit{
+		border:2px solid darken($list-btn-edit-color,5%);
+		background-color: #fff;
+		padding-right: 0;
+		padding-left:0;
+		color: $list-btn-edit-color;
+		&:focus,&:hover{
+			border:2px solid darken($list-btn-edit-color,8%);
+			background-color:darken(#fff ,5%);
+		}
+	}
+	&.i-more{
+		border:2px solid darken($list-btn-more-color,5%);
+		background-color: #fff;
+		color: $list-btn-more-color;
+		padding-right: 0;
+		padding-left:0;
+		&:focus,&:hover{
+			border:2px solid darken($list-btn-more-color,8%);
+			background-color:darken(#fff ,5%);
+		}
+	}
+	&.i-new{
+		border:2px solid darken($list-btn-more-color,5%);
+		background-color: #2592eb;
+		color: #fff;
+		&:focus,&:hover{
+			border:2px solid darken($list-btn-more-color,8%);
+			background-color:darken(#2592eb,5%);
+		}
+	}
+	&.i-looks{
+		border:2px solid #499de5;
+		background-color: #fff;
+		color: #5fa9e8;
+		padding-left: 0;
+		padding-right: 0;
+		&:focus,&:hover{
+			border:2px solid darken(#499de5,8%);
+			background-color:darken(#fff,5%);
+		}
+	}
+	&.i-approval{
+		border:1px solid darken($list-btn-approval-color,5%);
+		background-color:$list-btn-approval-color;
+		padding-right: 0;
+		padding-left:0;
+		&:focus,&:hover{
+			border:1px solid darken($list-btn-approval-color,8%);
+			background-color:darken($list-btn-approval-color,5%);
+		}
+	}
+	&.i-trash{
+		border:1px solid darken($list-btn-trash-color,5%);
+		background-color:$list-btn-trash-color;
+		&:focus,&:hover{
+			border:1px solid darken($list-btn-trash-color,8%);
+			background-color:darken($list-btn-trash-color,5%);
+		}
+	}
+}

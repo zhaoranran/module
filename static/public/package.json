@@ -1,0 +1,20 @@
+{
+  "name": "classics",
+  "version": "1.0.0",
+  "description": "前端经典模式主题样式",
+  "main": "index.js",
+  "dependencies": {
+    "jc-base": "^0.1.1",
+    "jc-layer": "^0.1.1",
+    "jc-dynrow": "^0.1.1",
+    "jc-webuploader": "^0.1.1",
+    "jc-validate": "^0.1.1",
+    "jc-tree": "^0.1.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "classics"
+  ],
+  "author": "gezg",
+  "license": "MIT"
+}
